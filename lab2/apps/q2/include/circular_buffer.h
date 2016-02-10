@@ -1,14 +1,16 @@
-#ifndef _CIRCULAR_BUFFER_H_
-#define _CIRULAR_BUFFER_H_
+#ifndef __USERPROG__
+#define __USERPROG__
 
-#define BUFFER_SIZE
-#define 
+#define BUFFER_SIZE 10
+#define FILENAME_PROD "producer.dlx.obj"
+#define FILENAME_CONS "consumer.dlx.obj"
 
-typedef struct circular_buffer
+typedef struct circ_buffer
 {
-	char buffer[BUFFER_SIZE];
-	uint_8 head;
-	uint_8 tail;
-}ddd
+	char mem_buffer[BUFFER_SIZE];
+	uint8 head;
+	uint8 tail;
+}
+
 
 #endif

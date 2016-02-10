@@ -9,15 +9,16 @@ void main (int argc, char *argv[])
 {
   int numprocs = 0;               // Used to store number of processes to create
   int i;                          // Loop index variable
-  circular_buffer *cb;               // Used to get address of shared memory page
+  circ_buffer *cb;               // Used to get address of shared memory buffer
   uint32 h_mem;                   // Used to hold handle to shared memory page
   sem_t process_completed;        // Semaphore used to wait until all spawned processes have completed
   lock_t buffer_lock;
+  char bugger_lock_str[2];
   char h_mem_str[10];             // Used as command-line argument to pass mem_handle to new processes
   char s_procs_completed_str[10]; // Used as command-line argument to pass page_mapped handle to new processes
 
   if (argc != 2) {
-    Printf("Usage: "); Printf(argv[0]); Printf(" <number of consumer/prooducer processes to create>\n");
+    Printf("Usage: "); Printf(argv[0]); Printf(" <number of consumer/producer processes to create>\n");
     Exit();
   }
 
@@ -34,14 +35,20 @@ void main (int argc, char *argv[])
   }
 
   // Map shared memory page into this process's memory space
-  if ((mc = (circular_buffer *)shmat(h_mem)) == NULL) {
+  if ((cb = (circular_buffer *)shmat(h_mem)) == NULL) {
     Printf("Could not map the shared page to virtual address in "); Printf(argv[0]); Printf(", exiting..\n");
     Exit();
   }
 
   // Put some values in the shared memory, to be read by other processes
-  mc->numprocs = numprocs;
-  mc->really_important_char = 'A';
+  cb->head = 0;
+  cb->tail = 0;
+
+  // Creating a lock to access the shared circular buffer memory
+  if((buffer_lock = lock_create()) != SYNC_FAIL)
+  {
+    Printf("Process, %s, could not initialize lock\n", argv[0]);
+  }
 
   // Create semaphore to not exit this process until all other processes 
   // have signalled that they are complete.  To do this, we will initialize
@@ -58,14 +65,16 @@ void main (int argc, char *argv[])
   // pass the handles to the shared memory page and the semaphore as strings
   // on the command line, so we must first convert them from ints to strings.
   ditoa(h_mem, h_mem_str);
+  ditoa(buffer_lock, buffer_lock_str);
   ditoa(s_procs_completed, s_procs_completed_str);
 
   // Now we can create the processes.  Note that you MUST end your call to
   // process_create with a NULL argument so that the operating system
   // knows how many arguments you are sending.
   for(i=0; i<numprocs; i++) {
-    process_create(FILENAME_TO_RUN, h_mem_str, s_procs_completed_str, NULL);
-    Printf("Process %d created\n", i);
+    process_create(FILENAME_PROD, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
+    process_create(FILENAME_CONS, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
+    Printf("Processes for producer and consumer %d created\n", i);
   }
 
   // And finally, wait until all spawned processes have finished.
