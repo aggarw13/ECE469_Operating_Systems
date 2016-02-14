@@ -102,7 +102,7 @@ LC9:
 	.ascii "producer.dlx.obj\000"
 	.align 2
 LC10:
-	.ascii "Processes for producer and consumer %d created\n\000"
+	.ascii "consumer.dlx.obj\000"
 	.align 2
 LC11:
 	.ascii "Bad semaphore s_procs_completed (%d) in \000"
@@ -123,25 +123,25 @@ _main:
 	sw	-8(r29),r31	; push ret addr
 	subui	r29,r29,#56	; alloc local storage
 	lw	r2,(r30)
-	lw	r7,4(r30)
+	lw	r8,4(r30)
 	jal	___main
 	nop	; not filled.
 	snei	r1,r2,#2
 	beqz	r1,L14
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC0)>>16)&0xffff
-	addui	r8,r8,(LC0)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC0)>>16)&0xffff
+	addui	r9,r9,(LC0)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lw	r8,(r7)
-	sw	(r29),r8
+	lw	r9,(r8)
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lhi	r8,((LC1)>>16)&0xffff
-	addui	r8,r8,(LC1)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC1)>>16)&0xffff
+	addui	r9,r9,(LC1)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	jal	_Exit
@@ -149,19 +149,19 @@ _main:
 	addi	r29,r29,#8
 L14:
 	addi	r29,r29,#-16
-	lw	r8,4(r7)
-	sw	(r29),r8
-	addi	r8,r0,#0
-	sw	4(r29),r8
-	addi	r8,r0,#10
-	sw	8(r29),r8
+	lw	r9,4(r8)
+	sw	(r29),r9
+	addi	r9,r0,#0
+	sw	4(r29),r9
+	addi	r9,r0,#10
+	sw	8(r29),r9
 	jal	_dstrtol
 	nop	; not filled.
-	add	r6,r0,r1
-	lhi	r8,((LC2)>>16)&0xffff
-	addui	r8,r8,(LC2)&0xffff
-	sw	(r29),r8
-	sw	4(r29),r6
+	add	r7,r0,r1
+	lhi	r9,((LC2)>>16)&0xffff
+	addui	r9,r9,(LC2)&0xffff
+	sw	(r29),r9
+	sw	4(r29),r7
 	jal	_Printf
 	nop	; not filled.
 	jal	_shmget
@@ -172,18 +172,18 @@ L14:
 	bnez	r1,L15
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC3)>>16)&0xffff
-	addui	r8,r8,(LC3)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC3)>>16)&0xffff
+	addui	r9,r9,(LC3)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lw	r8,(r7)
-	sw	(r29),r8
+	lw	r9,(r8)
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lhi	r8,((LC4)>>16)&0xffff
-	addui	r8,r8,(LC4)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC4)>>16)&0xffff
+	addui	r9,r9,(LC4)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	jal	_Exit
@@ -200,27 +200,27 @@ L15:
 	bnez	r1,L16
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC5)>>16)&0xffff
-	addui	r8,r8,(LC5)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC5)>>16)&0xffff
+	addui	r9,r9,(LC5)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lw	r8,(r7)
-	sw	(r29),r8
+	lw	r9,(r8)
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lhi	r8,((LC6)>>16)&0xffff
-	addui	r8,r8,(LC6)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC6)>>16)&0xffff
+	addui	r9,r9,(LC6)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	jal	_Exit
 	nop	; not filled.
 	addi	r29,r29,#8
 L16:
-	addi	r8,r0,#0
-	sw	8(r2),r8
-	sw	12(r2),r8
+	addi	r9,r0,#0
+	sw	8(r2),r9
+	sw	12(r2),r9
 	jal	_lock_create
 	nop	; not filled.
 	add	r2,r0,r1
@@ -228,34 +228,36 @@ L16:
 	beqz	r1,L17
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC7)>>16)&0xffff
-	addui	r8,r8,(LC7)&0xffff
-	sw	(r29),r8
-	lw	r1,(r7)
+	lhi	r9,((LC7)>>16)&0xffff
+	addui	r9,r9,(LC7)&0xffff
+	sw	(r29),r9
+	lw	r1,(r8)
 	sw	4(r29),r1
 	jal	_Printf
+	nop	; not filled.
+	jal	_Exit
 	nop	; not filled.
 	addi	r29,r29,#8
 L17:
 	addi	r29,r29,#-8
 	addi	r1,r0,#1
-	sub	r1,r1,r6
+	sub	r1,r1,r7
 	sw	(r29),r1
 	jal	_sem_create
 	nop	; not filled.
-	add	r5,r0,r1
+	add	r6,r0,r1
 	addi	r29,r29,#8
-	seqi	r1,r5,#-1
+	seqi	r1,r6,#-1
 	beqz	r1,L18
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC8)>>16)&0xffff
-	addui	r8,r8,(LC8)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC8)>>16)&0xffff
+	addui	r9,r9,(LC8)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
-	lw	r8,(r7)
-	sw	(r29),r8
+	lw	r9,(r8)
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	jal	_Exit
@@ -264,50 +266,55 @@ L17:
 L18:
 	addi	r29,r29,#-8
 	sw	(r29),r3
-	addi	r4,r30,#-40
-	sw	4(r29),r4
+	addi	r5,r30,#-40
+	sw	4(r29),r5
 	jal	_ditoa
 	nop	; not filled.
 	sw	(r29),r2
-	addi	r1,r30,#-24
-	sw	4(r29),r1
+	addi	r4,r30,#-24
+	sw	4(r29),r4
 	jal	_ditoa
 	nop	; not filled.
-	sw	(r29),r5
+	sw	(r29),r6
 	addi	r3,r30,#-56
 	sw	4(r29),r3
 	jal	_ditoa
 	nop	; not filled.
 	addi	r2,r0,#0
 	addi	r29,r29,#8
-	slt	r1,r2,r6
+	slt	r1,r2,r7
 	beqz	r1,L20
 	nop	; not filled.
 L22:
-	addi	r29,r29,#-16
-	lhi	r8,((LC9)>>16)&0xffff
-	addui	r8,r8,(LC9)&0xffff
-	sw	(r29),r8
-	sw	4(r29),r4
-	sw	8(r29),r3
-	addi	r8,r0,#0
-	sw	12(r29),r8
+	addi	r29,r29,#-24
+	lhi	r9,((LC9)>>16)&0xffff
+	addui	r9,r9,(LC9)&0xffff
+	sw	(r29),r9
+	sw	4(r29),r5
+	sw	8(r29),r4
+	sw	12(r29),r3
+	addi	r9,r0,#0
+	sw	16(r29),r9
 	jal	_process_create
 	nop	; not filled.
-	lhi	r8,((LC10)>>16)&0xffff
-	addui	r8,r8,(LC10)&0xffff
-	sw	(r29),r8
-	sw	4(r29),r2
-	jal	_Printf
+	lhi	r9,((LC10)>>16)&0xffff
+	addui	r9,r9,(LC10)&0xffff
+	sw	(r29),r9
+	sw	4(r29),r5
+	sw	8(r29),r4
+	sw	12(r29),r3
+	addi	r9,r0,#0
+	sw	16(r29),r9
+	jal	_process_create
 	nop	; not filled.
-	addi	r29,r29,#16
+	addi	r29,r29,#24
 	addi	r2,r2,#1
-	slt	r1,r2,r6
+	slt	r1,r2,r7
 	bnez	r1,L22
 	nop	; not filled.
 L20:
 	addi	r29,r29,#-8
-	sw	(r29),r5
+	sw	(r29),r6
 	jal	_sem_wait
 	nop	; not filled.
 	addi	r29,r29,#8
@@ -315,19 +322,19 @@ L20:
 	beqz	r1,L24
 	nop	; not filled.
 	addi	r29,r29,#-8
-	lhi	r8,((LC11)>>16)&0xffff
-	addui	r8,r8,(LC11)&0xffff
-	sw	(r29),r8
-	sw	4(r29),r5
+	lhi	r9,((LC11)>>16)&0xffff
+	addui	r9,r9,(LC11)&0xffff
+	sw	(r29),r9
+	sw	4(r29),r6
 	jal	_Printf
 	nop	; not filled.
-	lw	r7,(r7)
-	sw	(r29),r7
+	lw	r8,(r8)
+	sw	(r29),r8
 	jal	_Printf
 	nop	; not filled.
-	lhi	r8,((LC12)>>16)&0xffff
-	addui	r8,r8,(LC12)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC12)>>16)&0xffff
+	addui	r9,r9,(LC12)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	jal	_Exit
@@ -335,9 +342,9 @@ L20:
 	addi	r29,r29,#8
 L24:
 	addi	r29,r29,#-8
-	lhi	r8,((LC13)>>16)&0xffff
-	addui	r8,r8,(LC13)&0xffff
-	sw	(r29),r8
+	lhi	r9,((LC13)>>16)&0xffff
+	addui	r9,r9,(LC13)&0xffff
+	sw	(r29),r9
 	jal	_Printf
 	nop	; not filled.
 	addi	r29,r29,#8

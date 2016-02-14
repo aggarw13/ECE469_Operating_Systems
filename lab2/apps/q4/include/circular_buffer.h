@@ -9,6 +9,6 @@ typedef struct circ_buffer
 	char mem_buffer[BUFFERSIZE];
 	int head;
 	int tail;
-};
+}circ_buffer;
 
 #endif

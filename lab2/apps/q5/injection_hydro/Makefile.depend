@@ -1,0 +1,3 @@
+work/injection_hydro.o: injection_hydro.c ../../../include/lab2-api.h \
+ ../../../include/usertraps.h ../../../include/misc.h \
+ ../include/chemical_reactions.h

@@ -47,6 +47,7 @@ void main (int argc, char *argv[])
   if((buffer_lock = lock_create()) == SYNC_FAIL)
   {
     Printf("Process, %s, could not initialize lock\n", argv[0]);
+    Exit();
   }
 
   // Create semaphore to not exit this process until all other processes 
@@ -71,10 +72,8 @@ void main (int argc, char *argv[])
   // process_create with a NULL argument so that the operating system
   // knows how many arguments you are sending.
   for(i=0; i<numprocs; i++) {
-    //Printf("h_mem_str : %s buffer_lock_str : %d semaphore_str : %d", h_mem_str, buffer_lock, process_completed);
-    process_create("producer.dlx.obj", h_mem_str, s_procs_completed_str, NULL); 
-    //process_create(FILENAME_CONS, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
-    Printf("Processes for producer and consumer %d created\n", i);
+    process_create(FILENAME_PROD, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL); 
+    process_create(FILENAME_CONS, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
   }
 
   // And finally, wait until all spawned processes have finished.

@@ -391,7 +391,8 @@ int CondWait(Cond * c) {
   if(locks[c->lock].pid != GetCurrentPid())
    return SYNC_FAIL;
 
-    LockHandleRelease(c->lock);
+    if(LockHandleRelease(c->lock) == SYNC_FAIL)
+      exitsim();
 
      if ((l = AQueueAllocLink ((void *)currentPCB)) == NULL) {
       printf("FATAL ERROR: could not allocate link for cond queue in CondWait!\n");
@@ -402,8 +403,9 @@ int CondWait(Cond * c) {
       exitsim();
     }
     ProcessSleep();
-
-    LockHandleAcquire(c->lock);
+ 
+    if(LockHandleAcquire(c->lock) == SYNC_FAIL)
+      exitsim();
 
   RestoreIntrs(intrval);
   return SYNC_SUCCESS;
@@ -445,7 +447,7 @@ int CondSignal(Cond * cond)
   if (!cond) return SYNC_FAIL;
 
   intrs = DisableIntrs ();
-  dbprintf ('s', "CondSignal: Process %d Signalling on cond %d\n", GetCurrentPid(), (int)(cond-conds));
+  printf ('s', "CondSignal: Process %d Signalling on cond %d\n", GetCurrentPid(), (int)(cond-conds));
   // Increment internal counter before checking value
   if (!AQueueEmpty(&cond->waiting)) { // there is a process to wake up
       l = AQueueFirst(&cond->waiting);
@@ -454,7 +456,7 @@ int CondSignal(Cond * cond)
         printf("FATAL ERROR: could not remove link from cond var queue in condSignal!\n");
         exitsim();
       }
-      dbprintf ('s', "condSignal: Waking up PID %d.\n", (int)(GetPidFromAddress(pcb)));
+      printf ('s', "condSignal: Waking up PID %d.\n", (int)(GetPidFromAddress(pcb)));
       ProcessWakeup (pcb);
     }
   RestoreIntrs (intrs);

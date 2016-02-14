@@ -13,8 +13,8 @@ void main (int argc, char *argv[])
   sem_t process_completed;        // Semaphore used to wait until all spawned processes have completed
   lock_t buffer_lock;             // Lock for condition variable and circular buffer
   cond_t not_empty, not_full;     // Condition Variables for consumer and producer respectively
-  char buffer_lock_str[2];        // Used as command-line argument to pass lock handle to new processes
-  char cond_var_str[2];           // Used as command-line argument to pass condition variable handles to new processes
+  char buffer_lock_str[10];        // Used as command-line argument to pass lock handle to new processes
+  char cond_var_str[2][10];       // Used as command-line argument to pass condition variable handles to new processes
   char h_mem_str[10];             // Used as command-line argument to pass mem_handle to new processes
   char s_procs_completed_str[10]; // Used as command-line argument to pass page_mapped handle to new processes
 
@@ -49,33 +49,49 @@ void main (int argc, char *argv[])
   if((buffer_lock = lock_create()) == SYNC_FAIL)
   {
     Printf("Process, %s, could not initialize lock\n", argv[0]);
+    Exit();
   }
 
+  // Creating condition variables for circular buffer emptiness and saturation 
+  // required by producers and consumer processes
+  if((not_empty = cond_create(buffer_lock)) == SYNC_FAIL)
+  {
+    Printf("Could not assign condition variable for non buffer emptiness\n");
+    Exit();
+  }
+
+  if((not_full = cond_create(buffer_lock)) == SYNC_FAIL)
+  {
+    Printf("Could not assign condition variable for non buffer saturation\n");
+    Exit();
+  }
   // Create semaphore to not exit this process until all other processes 
   // have signalled that they are complete.  To do this, we will initialize
   // the semaphore to (-1) * (number of signals), where "number of signals"
   // should be equal to the number of processes we're spawning - 1.  Once 
   // each of the processes has signaled, the semaphore should be back to
   // zero and the final sem_wait below will return.
-  if ((process_completed = sem_create(-(numprocs-1))) == SYNC_FAIL) {
+  if ((process_completed = sem_create(-(numprocs - 1))) == SYNC_FAIL) {
     Printf("Bad sem_create in "); Printf(argv[0]); 
     Exit();
   }
 
   // Setup the command-line arguments for the new process.  We're going to
-  // pass the handles to the shared memory page and the semaphore as strings
-  // on the command line, so we must first convert them from ints to strings.
+  // pass the handles to the shared memory page, semaphore, condition variables, locks
+  // as strings on the command line, so we must first convert them from ints to strings.
   ditoa(h_mem, h_mem_str);
   ditoa(buffer_lock, buffer_lock_str);
+  ditoa(not_empty, cond_var_str[1]);
+  ditoa(not_full, cond_var_str[2]);
   ditoa(process_completed, s_procs_completed_str);
 
   // Now we can create the processes.  Note that you MUST end your call to
   // process_create with a NULL argument so that the operating system
   // knows how many arguments you are sending.
   for(i=0; i<numprocs; i++) {
-    process_create(FILENAME_PROD, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
-    process_create(FILENAME_CONS, h_mem_str, buffer_lock_str, s_procs_completed_str, NULL);
-    Printf("Processes for producer and consumer %d created\n", i);
+    process_create(FILENAME_PROD, h_mem_str, buffer_lock_str, cond_var_str[1], cond_var_str[2], s_procs_completed_str, NULL);
+    process_create(FILENAME_CONS, h_mem_str, buffer_lock_str, cond_var_str[1], cond_var_str[2], s_procs_completed_str, NULL);
+    //Printf("Processes for producer and consumer %d created\n", i);
   }
 
   // And finally, wait until all spawned processes have finished.
