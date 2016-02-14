@@ -23,7 +23,7 @@
 #define MAX_SEMS	32	//Maximum 32 semaphores allowed in the system
 #define MAX_LOCKS	64	//Maximum 64 locks allowed in the system
 				//This is because condition vars also use
-				//locks from the same pool
+				//locks  from the same pool
 #define MAX_CONDS	32	//Maximum 32 conds allowed in the system
 
 typedef int sem_t;
@@ -56,12 +56,16 @@ int LockAcquire(Lock *);
 int LockRelease(Lock *);
 
 typedef struct Cond {
+  int inuse;
+  lock_t lock;
+  Queue waiting;
   // Your code goes here
 } Cond;
 
 int CondInit(Cond *);
 int CondWait(Cond *);
 int CondSignal(Cond *);
+int CondBroadcast(Cond *);
 
 int SynchModuleInit();
 

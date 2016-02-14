@@ -7,8 +7,8 @@
 typedef struct circ_buffer
 {
 	char mem_buffer[BUFFERSIZE];
-	uint8 head;
-	uint8 tail;
-}
+	int head;
+	int tail;
+}circ_buffer;
 
 #endif
