@@ -1,6 +1,6 @@
 ; Linked by DLX-LD.
 ; MemSize 24576
-; Data size: 320
+; Data size: 328
 ; Text size: 4760
 ; Stack size: 8192
 .text 0x1000
@@ -94,7 +94,7 @@ LC4_LF0:
 .ascii ", exiting...\n\000"
 .align 2
 LC5_LF0:
-.ascii "Created new sulphur (S02) molecule\n\000"
+.ascii "Created new sulphur dioxide (S02) molecule\n\000"
 .align 2
 LC6_LF0:
 .ascii "Bad semaphore for O increment in reaction 2 : (%d) \000"

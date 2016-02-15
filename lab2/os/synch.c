@@ -394,7 +394,7 @@ int CondWait(Cond * c) {
     if(LockHandleRelease(c->lock) == SYNC_FAIL)
       exitsim();
 
-     if ((l = AQueueAllocLink ((void *)currentPCB)) == NULL) {
+    if ((l = AQueueAllocLink ((void *)currentPCB)) == NULL) {
       printf("FATAL ERROR: could not allocate link for cond queue in CondWait!\n");
       exitsim();
     }
@@ -402,10 +402,10 @@ int CondWait(Cond * c) {
       printf("FATAL ERROR: could not insert new link into cond waiting queue in CondWait!\n");
       exitsim();
     }
-    ProcessSleep();
- 
+    ProcessSleep();  
+
     if(LockHandleAcquire(c->lock) == SYNC_FAIL)
-      exitsim();
+      return SYNC_FAIL;
 
   RestoreIntrs(intrval);
   return SYNC_SUCCESS;

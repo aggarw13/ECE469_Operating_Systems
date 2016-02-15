@@ -9,7 +9,7 @@ void main(int argc, char * argv[])
 	//Local variables
 	lock_t buff_lock;
 	circ_buffer * cbuffer;
-	char info[12] = "HELLO WORLD";	
+	char info[12] = "Hello World";	
 	sem_t proc_sem;
 	uint32 h_mem;
 	int curr_index = 0, process_no;

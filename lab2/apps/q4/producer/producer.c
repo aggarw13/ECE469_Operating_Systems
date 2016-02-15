@@ -10,7 +10,7 @@ void main(int argc, char * argv[])
 	lock_t buff_lock;
 	cond_t notEmpty, notFull;
 	circ_buffer * cbuffer;
-	char info[12] = "HELLO WORLD";	
+	char info[12] = "Hello World";	
 	sem_t proc_sem;
 	uint32 h_mem;
 	int curr_index = 0, process_no;
@@ -41,15 +41,15 @@ void main(int argc, char * argv[])
   		// one by one. 
 	  	if(lock_acquire(buff_lock))
 	  	{
-	  		if(cbuffer->head == (cbuffer->tail + 1) % BUFFERSIZE)
+	  		while(cbuffer->head == (cbuffer->tail + 1) % BUFFERSIZE)
 	  		{
-	  			Printf("Producer :%d is waiting on notFull\n", getpid());
+	  			//Printf("Producer :%d is waiting on notFull\n", getpid());
 	  			cond_wait(notFull);
+	  			//lock_acquire(buff_lock);
 	  		}
 
 	  		if(cbuffer->head == cbuffer->tail)
 	  		{
-	  			//Printf("Current buffer head : %d and tail : %d", cbuffer->head, cbuffer->tail);
 	  			wasEmpty = 1;
 	  		}
 
@@ -60,8 +60,8 @@ void main(int argc, char * argv[])
 	  	
 	  		if(wasEmpty)
 	  		{
-	  			Printf("Producer %d sends buffer not empty signal\n", getpid());
-	  			cond_broadcast(notEmpty);
+	  			//Printf("Producer %d sends buffer not empty signal\n", getpid());
+	  			cond_signal(notEmpty);
 	  			wasEmpty = 0;
 	  		}
 	  	}
@@ -73,7 +73,7 @@ void main(int argc, char * argv[])
     Exit();
  	}*/
 
- 	Printf("Producer ID : %d has completed its work and will die\n", getpid());
+ 	//Printf("Producer ID : %d has completed its work and will die\n", getpid());
 
 
 }

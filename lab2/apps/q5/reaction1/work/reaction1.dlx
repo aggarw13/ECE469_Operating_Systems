@@ -1,7 +1,7 @@
 ; Linked by DLX-LD.
 ; MemSize 24576
 ; Data size: 317
-; Text size: 4760
+; Text size: 4868
 ; Stack size: 8192
 .text 0x1000
 .data 0x3000
@@ -115,7 +115,7 @@ _main:
 	sw	-8(r29),r31; push ret addr
 	subui	r29,r29,#8; alloc local storage
 	lw	r2,(r30)
-	lw	r4,4(r30)
+	lw	r5,4(r30)
 	jal	___main
 	nop; not filled.
 	snei	r1,r2,#6
@@ -127,7 +127,7 @@ _main:
 	sw	(r29),r10
 	jal	_Printf
 	nop; not filled.
-	lw	r10,(r4)
+	lw	r10,(r5)
 	sw	(r29),r10
 	jal	_Printf
 	nop; not filled.
@@ -136,7 +136,7 @@ _main:
 	addi	r29,r29,#8
 L14_LF0:
 	addi	r29,r29,#-16
-	lw	r10,4(r4)
+	lw	r10,4(r5)
 	sw	(r29),r10
 	addi	r10,r0,#0
 	sw	4(r29),r10
@@ -145,7 +145,7 @@ L14_LF0:
 	jal	_dstrtol
 	nop; not filled.
 	add	r8,r0,r1
-	lw	r10,8(r4)
+	lw	r10,8(r5)
 	sw	(r29),r10
 	addi	r10,r0,#0
 	sw	4(r29),r10
@@ -153,8 +153,8 @@ L14_LF0:
 	sw	8(r29),r10
 	jal	_dstrtol
 	nop; not filled.
-	add	r5,r0,r1
-	lw	r10,12(r4)
+	add	r4,r0,r1
+	lw	r10,12(r5)
 	sw	(r29),r10
 	addi	r10,r0,#0
 	sw	4(r29),r10
@@ -163,7 +163,7 @@ L14_LF0:
 	jal	_dstrtol
 	nop; not filled.
 	add	r7,r0,r1
-	lw	r10,16(r4)
+	lw	r10,16(r5)
 	sw	(r29),r10
 	addi	r10,r0,#0
 	sw	4(r29),r10
@@ -172,7 +172,7 @@ L14_LF0:
 	jal	_dstrtol
 	nop; not filled.
 	add	r6,r0,r1
-	lw	r10,20(r4)
+	lw	r10,20(r5)
 	sw	(r29),r10
 	addi	r10,r0,#0
 	sw	4(r29),r10
@@ -188,7 +188,7 @@ L14_LF0:
 	nop; not filled.
 L18_LF0:
 	addi	r29,r29,#-8
-	sw	(r29),r5
+	sw	(r29),r4
 	jal	_sem_wait
 	nop; not filled.
 	addi	r29,r29,#8
@@ -199,10 +199,10 @@ L18_LF0:
 	lhi	r10,((LC1_LF0)>>16)&0xffff
 	addui	r10,r10,(LC1_LF0)&0xffff
 	sw	(r29),r10
-	sw	4(r29),r5
+	sw	4(r29),r4
 	jal	_Printf
 	nop; not filled.
-	lw	r10,(r4)
+	lw	r10,(r5)
 	sw	(r29),r10
 	jal	_Printf
 	nop; not filled.
@@ -215,15 +215,43 @@ L18_LF0:
 	nop; not filled.
 	addi	r29,r29,#8
 L19_LF0:
+	addi	r29,r29,#-8
+	sw	(r29),r4
+	jal	_sem_wait
+	nop; not filled.
+	addi	r29,r29,#8
+	snei	r1,r1,#1
+	beqz	r1,L20_LF0
+	nop; not filled.
+	addi	r29,r29,#-8
+	lhi	r10,((LC1_LF0)>>16)&0xffff
+	addui	r10,r10,(LC1_LF0)&0xffff
+	sw	(r29),r10
+	sw	4(r29),r4
+	jal	_Printf
+	nop; not filled.
+	lw	r10,(r5)
+	sw	(r29),r10
+	jal	_Printf
+	nop; not filled.
+	lhi	r10,((LC2_LF0)>>16)&0xffff
+	addui	r10,r10,(LC2_LF0)&0xffff
+	sw	(r29),r10
+	jal	_Printf
+	nop; not filled.
+	jal	_Exit
+	nop; not filled.
+	addi	r29,r29,#8
+L20_LF0:
 	addi	r2,r0,#0
-L23_LF0:
+L24_LF0:
 	addi	r29,r29,#-8
 	sw	(r29),r7
 	jal	_sem_signal
 	nop; not filled.
 	addi	r29,r29,#8
 	snei	r1,r1,#1
-	beqz	r1,L24_LF0
+	beqz	r1,L25_LF0
 	nop; not filled.
 	jal	_getpid
 	nop; not filled.
@@ -234,7 +262,7 @@ L23_LF0:
 	sw	4(r29),r1
 	jal	_Printf
 	nop; not filled.
-	lw	r10,(r4)
+	lw	r10,(r5)
 	sw	(r29),r10
 	jal	_Printf
 	nop; not filled.
@@ -246,7 +274,7 @@ L23_LF0:
 	jal	_Exit
 	nop; not filled.
 	addi	r29,r29,#8
-L24_LF0:
+L25_LF0:
 	addi	r29,r29,#-8
 	lhi	r10,((LC5_LF0)>>16)&0xffff
 	addui	r10,r10,(LC5_LF0)&0xffff
@@ -256,17 +284,17 @@ L24_LF0:
 	addi	r29,r29,#8
 	addi	r2,r2,#1
 	slei	r1,r2,#1
-	bnez	r1,L23_LF0
+	bnez	r1,L24_LF0
 	nop; not filled.
 	addi	r2,r0,#0
-L29_LF0:
+L30_LF0:
 	addi	r29,r29,#-8
 	sw	(r29),r6
 	jal	_sem_signal
 	nop; not filled.
 	addi	r29,r29,#8
 	snei	r1,r1,#1
-	beqz	r1,L30_LF0
+	beqz	r1,L31_LF0
 	nop; not filled.
 	jal	_getpid
 	nop; not filled.
@@ -277,7 +305,7 @@ L29_LF0:
 	sw	4(r29),r1
 	jal	_Printf
 	nop; not filled.
-	lw	r10,(r4)
+	lw	r10,(r5)
 	sw	(r29),r10
 	jal	_Printf
 	nop; not filled.
@@ -289,7 +317,7 @@ L29_LF0:
 	jal	_Exit
 	nop; not filled.
 	addi	r29,r29,#8
-L30_LF0:
+L31_LF0:
 	addi	r29,r29,#-8
 	lhi	r10,((LC7_LF0)>>16)&0xffff
 	addui	r10,r10,(LC7_LF0)&0xffff
@@ -299,7 +327,7 @@ L30_LF0:
 	addi	r29,r29,#8
 	addi	r2,r2,#1
 	slei	r1,r2,#0
-	bnez	r1,L29_LF0
+	bnez	r1,L30_LF0
 	nop; not filled.
 	addi	r3,r3,#1
 	slt	r1,r3,r8
@@ -312,7 +340,7 @@ L16_LF0:
 	nop; not filled.
 	addi	r29,r29,#8
 	snei	r1,r1,#1
-	beqz	r1,L33_LF0
+	beqz	r1,L34_LF0
 	nop; not filled.
 	jal	_getpid
 	nop; not filled.
@@ -323,8 +351,8 @@ L16_LF0:
 	sw	4(r29),r1
 	jal	_Printf
 	nop; not filled.
-	lw	r4,(r4)
-	sw	(r29),r4
+	lw	r5,(r5)
+	sw	(r29),r5
 	jal	_Printf
 	nop; not filled.
 	lhi	r10,((LC4_LF0)>>16)&0xffff
@@ -335,7 +363,7 @@ L16_LF0:
 	jal	_Exit
 	nop; not filled.
 	addi	r29,r29,#8
-L33_LF0:
+L34_LF0:
 	jal	_exit
 	nop
 .endproc _main
