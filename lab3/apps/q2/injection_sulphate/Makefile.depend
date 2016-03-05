@@ -1,0 +1,3 @@
+work/injection_sulphate.o: injection_sulphate.c \
+ ../../../include/usertraps.h ../../../include/misc.h \
+ ../include/chemical_reactions.h

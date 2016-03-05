@@ -1,0 +1,3110 @@
+cd ../../bin; dlxsim -x os.dlx.obj -a  -u userprog4.dlx.obj 2; ee469_fixterminal
+Stack=0x1fffc8, pc starting at 0x12038
+Got 3 arguments.
+Available memory: 0x218d0 -> 0x200000.
+Argument count is 3.
+Argument 0 is -u.
+Argument 1 is userprog4.dlx.obj.
+Argument 2 is 2.
+Setting number = 2
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B0
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A0
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B1
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A1
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B2
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A2
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B3
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A3
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B4
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A4
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B5
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A5
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B6
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A6
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B7
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A7
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B8
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A8
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B9
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A9
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B10
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A10
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B11
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A11
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B12
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A12
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B13
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A13
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B14
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A14
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B15
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A15
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B16
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A16
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B17
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A17
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B18
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A18
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+B19
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+A19
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Updating process CPU utilization time
+Done with pcb swapping in run queue
+Done with waking up autowake processes
+Reaches random number generation : 0.000000
+Got a control-C: exiting!

@@ -30,6 +30,9 @@
 #define	PROCESS_TYPE_SYSTEM	0x100
 #define	PROCESS_TYPE_USER	0x200
 
+#define RR_SCHED
+
+
 typedef	void (*VoidFunc)();
 
 // Process control block
@@ -42,6 +45,13 @@ typedef struct PCB {
   uint32	pagetable[16];	// Statically allocated page table
   int		npages;		// Number of pages allocated to this process
   Link		*l;		// Used for keeping PCB in queues
+  uint32 cum_jiffies;
+  uint32 last_end_time;
+  uint32 last_start_time;
+  int autoWakeUp;
+  int flag_yield;
+  uint32 autosleep_time;
+  uint32 last_sleep_time;
 
   int           pinfo;          // Turns on printing of runtime stats
   int           pnice;          // Used in priority calculation
@@ -76,6 +86,20 @@ typedef struct PCB {
 
 extern PCB	*currentPCB;
 
+extern int total_tickets;
+extern PCB * idlePCB;
+
+// Static Lottery Scheduling  Implementation
+extern PCB * chooseRandomProcessfromQueue();
+
+// Dynamic Scheduling Lottery Implementation
+extern void reevaluateProcessPriority(PCB * );
+
+// Auotwake sleep process implementation methods
+int hasSleepingAutoWakeProcesses();
+void WakeUpSleepingAutoWakeProcesses();
+
+
 int ProcessFork (VoidFunc func, uint32 param, int pnice, int pinfo,char *name, int isUser);
 extern void	ProcessSchedule ();
 extern void	ContextSwitch(void *, void *, int);
@@ -85,6 +109,9 @@ extern void	ProcessSetResult (PCB *, uint32);
 extern void	ProcessSleep ();
 extern void     ProcessDestroy(PCB *pcb);
 extern unsigned GetCurrentPid();
+extern int random();
+extern void srandom(unsigned int);
+
 void process_create(char *name, ...);
 int GetPidFromAddress(PCB *pcb);
 

@@ -146,13 +146,6 @@ int MboxOpen(mbox_t handle) {
   return MBOX_FAIL;
 }
 
-/*int AddProcessToMBox(int pid, int handle)
-{
-
-
-
-}*/
-
 //-------------------------------------------------------
 //
 // int MboxClose(mbox_t);
@@ -172,13 +165,12 @@ void checkMailBoxUse(int handle)
 	{	
 		MailBox[handle].inuse = 0;
 
-		while(MailBox[handle].buffers.nitems > 0)
+		/*while(AQueueLength(&MailBox[handle].buffers) > 0)
 		{
 			//m_buffer = MailBox[handle].buffers.first->next;
 			AQueueRemove(&MailBox[handle].buffers.first);
 			used_buffers--;
-		}
-	MailBox[handle].inuse = 0;
+		}*/
 	}
 }
 
@@ -221,7 +213,7 @@ int MboxClose(mbox_t handle) {
 int MboxSend(mbox_t handle, int length, void* message) {
 
 	int intrs;
-	int wasEmpty = 0;
+	int wasEmpty = 0, buffer_no = used_buffers;
 	Link * mbuffer_link;
 
 	if(MailBox[handle].inuse == false)
@@ -240,29 +232,29 @@ int MboxSend(mbox_t handle, int length, void* message) {
 
 	LockHandleAcquire(MailBox[handle].lock);
 
-	while(MailBox[handle].buffers.nitems == MBOX_MAX_BUFFERS_PER_MBOX || used_buffers == MBOX_NUM_BUFFERS)
+	while(AQueueLength(&MailBox[handle].buffers) == MBOX_MAX_BUFFERS_PER_MBOX || used_buffers == MBOX_NUM_BUFFERS)
 	{
 		CondHandleWait(MailBox[handle].moreSpace);
 	}
 
-	if(MailBox[handle].buffers.nitems == 0)
+	if(AQueueLength(&MailBox[handle].buffers) == 0)
 		wasEmpty = 1;
 
-	if(MailBox[handle].buffers.nitems != MBOX_MAX_BUFFERS_PER_MBOX)
+	if(AQueueLength(&MailBox[handle].buffers) != MBOX_MAX_BUFFERS_PER_MBOX)
 	{
-		
-		//TODO : Copy message from pointer address to message structure
 		if(length > MBOX_MAX_MESSAGE_LENGTH)
 		{
 			printf("Messge passed by user process : %d larger than accepted message length (Messge length sent - %d)", GetCurrentPid(), length);
 			return MBOX_FAIL;
 		}
 	
-		bcopy(message, Messg_Buffers[used_buffers++].message, length); 
+		bcopy(message, Messg_Buffers[buffer_no].message, length); 
 
-		Messg_Buffers[used_buffers++].size = length;
+		used_buffers++;
 
-		if((mbuffer_link = AQueueAllocLink(&Messg_Buffers[used_buffers - 1])) == QUEUE_FAIL)
+		Messg_Buffers[buffer_no].size = length;
+
+		if((mbuffer_link = AQueueAllocLink(&Messg_Buffers[buffer_no])) == QUEUE_FAIL)
 		{
 			printf("FATAL Error : Link object could not be created for message buffer : %d in process : %d",used_buffers - 1, GetCurrentPid());
 			exitsim();
@@ -275,8 +267,10 @@ int MboxSend(mbox_t handle, int length, void* message) {
 		}
 	}
 
-	if(wasEmpty)
-		CondHandleSignal(MailBox[handle].moreData);
+	printf("Message inserted by process : %d using buffer : %d with current count : %d\n", GetCurrentPid(), buffer_no, AQueueLength(&MailBox[handle].buffers));
+
+	//if(wasEmpty)
+	CondHandleSignal(MailBox[handle].moreData);
 
 	LockHandleRelease(MailBox[handle].lock);
 
@@ -323,25 +317,30 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 
 	LockHandleAcquire(MailBox[handle].lock);
 
-	while(MailBox[handle].buffers.nitems == 0)
+	while(AQueueLength(&MailBox[handle].buffers) == 0)
 	{
-		printf("Waiting for mailbox to have more messages");
+		//printf("Waiting for mailbox to have more messages\n");
 		CondHandleWait(MailBox[handle].moreData);
 	}
 
-	printf("Receiveed mialbox lock by calling process : %d\n", GetCurrentPid());
+	//printf("Received mailbox lock by calling process : %d with mailbox buffer count : %d\n", GetCurrentPid(), AQueueLength(&MailBox[handle].buffers));
 
-	if(MailBox[handle].buffers.nitems == MBOX_MAX_BUFFERS_PER_MBOX)
+	if(AQueueLength(&MailBox[handle].buffers) == MBOX_MAX_BUFFERS_PER_MBOX)
 		wasFull = 1;
 
-	if(MailBox[handle].buffers.nitems < MBOX_MAX_BUFFERS_PER_MBOX && used_buffers == MBOX_NUM_BUFFERS)
+	if(AQueueLength(&MailBox[handle].buffers) < MBOX_MAX_BUFFERS_PER_MBOX && used_buffers == MBOX_NUM_BUFFERS)
 		buffersSaturated = 1;
 
-	if((user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first)) == NULL)
-	{
-		printf("Undefined/unallocated Link pointer obtained from mailbox queue with handle : %d in process : %d", handle, GetCurrentPid());
-		return MBOX_FAIL;
-	}
+	user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first);
+
+	printf("Received mailbox lock by calling process : %d with mailbox buffer count : %d\n", GetCurrentPid(), AQueueLength(&MailBox[handle].buffers));
+
+	//if((user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first)))
+	//{
+	//	printf("Undefined/unallocated Link pointer obtained from mailbox queue with handle :%d in process : %d\n", handle, GetCurrentPid());
+		//printf("MailBox buffer size : %d\n", AQueueLength(&MailBox[handle].buffers));
+	//	return MBOX_FAIL;
+	//}
 		
 	if(maxlength < user_mesg->size)
 	{
@@ -349,7 +348,7 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 		return MBOX_FAIL;
 	}
 
-	bcopy(user_mesg->message, (char *)message, user_mesg->size); 
+	bcopy(user_mesg->message, message, user_mesg->size); 
 
 	if(AQueueRemove(&MailBox[handle].buffers.first) == QUEUE_FAIL)
 	{
@@ -357,12 +356,16 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 		exitsim();
 	}
 
-	used_buffers--;
+	//used_buffers--;
 
-	if(wasFull || buffersSaturated)
-		CondHandleSignal(MailBox[handle].moreSpace);
+
+
+	//if(wasFull || buffersSaturated)
+	CondHandleSignal(MailBox[handle].moreSpace);
 
 	LockHandleRelease(MailBox[handle].lock);
+
+	RestoreIntrs(intrs);
 
   return user_mesg->size;
 }

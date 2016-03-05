@@ -39,8 +39,9 @@ main (int argc, char *argv[])
   
       for(i = 0; i < number; i++)
       {
+        //Printf("Current process : %d\n", i);
         ditoa(i, num_str);
-        process_create(1 + i, 0, "userprog4.dlx.obj", num_str, 
+        process_create("userprog4.dlx.obj", 1 + i, 0, num_str, 
                        spage_str, handle_str,
                        NULL);     // different p_nice for child process
       }

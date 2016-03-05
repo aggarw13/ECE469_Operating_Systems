@@ -13,6 +13,12 @@
 // Define your mailbox structures here
 //--------------------------------------------
 
+typedef struct missile_code {
+  int numprocs;
+  char really_important_char;
+} missile_code;
+
+
 typedef struct mbox_message {
 	int size;
 	char message[MBOX_MAX_MESSAGE_LENGTH];
@@ -25,7 +31,6 @@ typedef struct mbox {
 	lock_t lock;
 	cond_t moreSpace, moreData;
 	int inuse;
-	//int head, tail;
 	int num_buffers;
 	int process_count;
 	//Attribute for listing associated processes required
