@@ -18,8 +18,8 @@ void main(int argc, char * argv[])
 	    Exit();
 	}
 
-	mbox_hydro = dstrtol(argv[3], NULL, 10);
-	proc_sem = dstrtol(argv[4], NULL, 10);
+	mbox_hydro = dstrtol(argv[1], NULL, 10);
+	proc_sem = dstrtol(argv[2], NULL, 10);
 
 	//Open the water molecule mailbox
 	if (mbox_open(mbox_hydro) == MBOX_FAIL) {
@@ -33,6 +33,11 @@ void main(int argc, char * argv[])
     }
 
     Printf("Created a new H2O molecule\n");    	
+
+	if (mbox_close(mbox_hydro) == MBOX_FAIL) {
+    	Printf("injection_hydro (%d): Could not close the mailbox!\n", getpid());
+    	Exit();
+  	}
 
  	if(sem_signal(proc_sem) != SYNC_SUCCESS) {
     	Printf("Bad semaphore for proc sem increment in hydro injection : %d ", getpid()); Printf(argv[0]); Printf(", exiting...\n");

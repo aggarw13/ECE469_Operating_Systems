@@ -1,5 +1,7 @@
 #include "lab2-api.h"
 
+//#define dynamic
+#define sleep
 /*
   This is the testcase for question 3
   Note: Dynamic priority should be disabled
@@ -14,7 +16,7 @@ main (int argc, char *argv[])
 {
   int number, i, j, offset;
   uint32 handle;
-  sem_t spage, sem_ipc;
+  sem_t spage; sem_t ipc_sem;
   char num_str[10], spage_str[10], handle_str[10], ipc_str[10];
   DB * db;
 
@@ -31,16 +33,18 @@ main (int argc, char *argv[])
       db->end = 0;              // Initially the end flag is 0
 
       spage = sem_create(0);
+      ipc_sem = cond_create(0);
       ditoa(handle, handle_str);
       ditoa(spage, spage_str);
 
       number = dstrtol(argv[1], NULL, 10);
       Printf("Setting number = %d\n", number);
   
-      for(i = 0; i < 2; i++)
+      for(i = 0; i < number; i++)
       {
+        //Printf("Current process : %d\n", i);
         ditoa(i, num_str);
-        process_create("userprog4.dlx.obj", 1 + i,0, num_str, 
+        process_create("userprog4.dlx.obj", 1 + i, 0, num_str, 
                        spage_str, handle_str,
                        NULL);     // different p_nice for child process
       }
@@ -52,6 +56,7 @@ main (int argc, char *argv[])
     case 4:
       offset = dstrtol(argv[1], NULL, 10);
       spage = dstrtol(argv[2], NULL, 10);
+      //ipc_sem = dstrtol(argv[3], NULL, 10);
       handle = dstrtol(argv[3], NULL, 10);
       db = (DB *)shmat(handle);
       if(db == NULL)
@@ -59,31 +64,30 @@ main (int argc, char *argv[])
           Printf("Could not map the virtual address to the memory, exiting...\n");
           exit();
         }
-
-      if(offset == -1)
-      {Printf("Reahes here;");
-      sem_ipc = sem_create(0);
-
-      ditoa(sem_ipc, ipc_str);
-
-      Printf("creating process!\n");
-      if(offset == 0)
-        process_create("test_dynamic.dlx.obj", 3,0, ipc_str, NULL);
-    }
-      //sleep(1);
+        sleep(100);
 
       for(i = 0; !db->end; i ++)
       {
         for(j = 0; j < 50000; j++)
         {
-          if(offset == -1 && j % 2000 == 0)
-            sem_signal(sem_ipc);
-        }
-         Printf("%c%d\n",'A'+offset, i);
-  //     if(offset == 0 && i % 50 == 0)
-    //        sleep(1);
+        //#ifdef sleep
+          if(offset == 1 && j % 1000 == 0 && j <= 30000)
+            sleep(1);
+      
+          //# endif
+
+          #ifdef dynamic
+            if(offset == 0 && j % 500 == 0 && j <= 3000)
+              cond_wait(ipc_sem);
+
+            if(offset == 1 && j % 600 == 0)
+              cond_signal(ipc_sem);
+          # endif
+        }     //waste some time
+        Printf("%c%d\n",'A'+offset, i);
         if(i > 200) sem_signal(spage);  //signal end
       }
+
       Printf("***** Process %d reached %d *****\n", getpid(), i);
 
       /*

@@ -70,32 +70,32 @@ void main (int argc, char *argv[])
 
   // Opening mailboxes in parent process to ensure liveliness of mailboxes 
   // even after the death of all child processes
-  if (mbox_create(mbox_oxygen) == SYNC_FAIL) {
+  if (mbox_open(mbox_oxygen) == SYNC_FAIL) {
     Printf("Could not open mailbox for oxygen "); Printf(argv[0]); 
     Exit();
   }
 
-  if (mbox_create(mbox_hydro) == SYNC_FAIL) {
+  if (mbox_open(mbox_hydro) == SYNC_FAIL) {
     Printf("Could not open mailbox for hydro "); Printf(argv[0]); 
     Exit();
   }
 
-  if (mbox_create(mbox_sulphate ) == SYNC_FAIL) {
+  if (mbox_open(mbox_sulphate ) == SYNC_FAIL) {
     Printf("Could not open mailbox for sulphate "); Printf(argv[0]); 
     Exit();
   }
 
-  if (mbox_create(mbox_sulphur) == SYNC_FAIL) {
+  if (mbox_open(mbox_sulphur) == SYNC_FAIL) {
     Printf("Could not open mailbox for sulphur "); Printf(argv[0]); 
     Exit();
   }
 
-  if (mbox_create(mbox_hydrogen) == SYNC_FAIL) {
+  if (mbox_open(mbox_hydrogen) == SYNC_FAIL) {
     Printf("Could not open mailbox for hydrogen "); Printf(argv[0]); 
     Exit();
   }
 
-  if (mbox_create(mbox_acid) == SYNC_FAIL) {
+  if (mbox_open(mbox_acid) == SYNC_FAIL) {
     Printf("Could not open mailbox for acid "); Printf(argv[0]); 
     Exit();
   }
@@ -114,36 +114,63 @@ void main (int argc, char *argv[])
   ditoa(mbox_acid, acid_str);
   ditoa(process_completed, s_procs_completed_str);   
 
-  Printf("Max procs value : %d\n", max_procs);
-
   for(i = 0; i < max_procs; i++)
   {
-
-    // Creating injection and reaction processes
+    //Printf("Creating injection and reaction processes for iteration : %d\n", i); 
     if(i < num_hydro)
       process_create(INJECTION_1, 0, 0, hydro_str, s_procs_completed_str, NULL); 
 
-      Printf("Reached the point of injection 2 creation\n");
+    //Printf("Reached the point of injection 2 creation\n");
     
     if(i < num_sulphate)
       process_create(INJECTION_2, 0, 0, sulphate_str, s_procs_completed_str, NULL); 
    
-      Printf("Reached the point of reaction 1 process\n");  
+      //Printf("Reached the point of reaction 1 process\n");  
     if(i < consum_react1)
       process_create(REACTION_1, 0, 0, hydro_str, hydrogen_str, oxygen_str, s_procs_completed_str, NULL); 
   
     if(i < consum_react2)
       process_create(REACTION_2, 0, 0, sulphate_str, sulphur_str, oxygen_str, s_procs_completed_str, NULL); 
     
-     Printf("Reached the point of reaction 3 process\n");  
-
     if(i < consum_react3)
       process_create(REACTION_3, 0, 0, hydrogen_str, oxygen_str, sulphur_str, acid_str, s_procs_completed_str, NULL); 
+  
+    //Printf("Created reaction 3 process\n");  
   }
    
   // And finally, wait until all spawned processes have finished.
   if (sem_wait(process_completed) != SYNC_SUCCESS) {
     Printf("Bad semaphore s_procs_completed (%d) in ", process_completed); Printf(argv[0]); Printf("\n");
+    Exit();
+  }
+
+  if (mbox_close(mbox_oxygen) == SYNC_FAIL) {
+    Printf("Could not close mailbox for oxygen "); Printf(argv[0]); 
+    Exit();
+  }
+
+  if (mbox_close(mbox_hydro) == SYNC_FAIL) {
+    Printf("Could not close mailbox for hydro "); Printf(argv[0]); 
+    Exit();
+  }
+
+  if (mbox_close(mbox_sulphate ) == SYNC_FAIL) {
+    Printf("Could not close mailbox for sulphate "); Printf(argv[0]); 
+    Exit();
+  }
+
+  if (mbox_close(mbox_sulphur) == SYNC_FAIL) {
+    Printf("Could not close mailbox for sulphur "); Printf(argv[0]); 
+    Exit();
+  }
+
+  if (mbox_close(mbox_hydrogen) == SYNC_FAIL) {
+    Printf("Could not close mailbox for hydrogen "); Printf(argv[0]); 
+    Exit();
+  }
+
+  if (mbox_close(mbox_acid) == SYNC_FAIL) {
+    Printf("Could not close mailbox for acid "); Printf(argv[0]); 
     Exit();
   }
 

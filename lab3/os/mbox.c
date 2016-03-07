@@ -99,9 +99,9 @@ mbox_t MboxCreate() {
 	//MailBox[mbox_no].head = 1;
 	MailBox[mbox_no].process_count = 0;
 
-	return mbox_no;
 
-  return MBOX_FAIL;
+	//printf("Created mailbox with handle : %d\n", mbox_no);
+	return mbox_no;
 }
 
 //-------------------------------------------------------
@@ -129,21 +129,12 @@ int MboxOpen(mbox_t handle) {
 
 	intrs = DisableIntrs ();
 
-	if(GetCurrentPid() <= 31)
-	{
-		MailBox[handle].process_count++;
-		MailBox[handle].procs_link[GetCurrentPid()] = 1;
+	MailBox[handle].process_count++;
+	MailBox[handle].procs_link[GetCurrentPid()] = 1;
 		
-		RestoreIntrs (intrs);
-		return MBOX_SUCCESS;
-	}
-	else{
-		printf("MailBox : %d opening access by kernel process : %d", handle, GetCurrentPid());
-	}
 
 	RestoreIntrs (intrs);
-
-  return MBOX_FAIL;
+	return MBOX_SUCCESS;
 }
 
 //-------------------------------------------------------
@@ -159,26 +150,11 @@ int MboxOpen(mbox_t handle) {
 // Returns MBOX_SUCCESS on success.
 //
 //-------------------------------------------------------
-void checkMailBoxUse(int handle)
-{
-	if(--MailBox[handle].process_count == false)
-	{	
-		MailBox[handle].inuse = 0;
-
-		/*while(AQueueLength(&MailBox[handle].buffers) > 0)
-		{
-			//m_buffer = MailBox[handle].buffers.first->next;
-			AQueueRemove(&MailBox[handle].buffers.first);
-			used_buffers--;
-		}*/
-	}
-}
-
 int MboxClose(mbox_t handle) {
 
 	int intrs;
 
-	if(MailBox[handle].inuse == false)
+	if(MailBox[handle].inuse == 0)
 	{
 		printf("Currently passed mailbox handle : %d by calling process : %d is unallocated\n", handle, GetCurrentPid());
 		return MBOX_FAIL;
@@ -187,7 +163,9 @@ int MboxClose(mbox_t handle) {
 	intrs = DisableIntrs();
 
 	MailBox[handle].procs_link[GetCurrentPid()] = 0;
-	checkMailBoxUse(handle);
+	MailBox[handle].process_count--;
+	if(MailBox[handle].process_count == false)
+		MailBox[handle].inuse = 0;
 
 	RestoreIntrs(intrs);
 
@@ -213,10 +191,10 @@ int MboxClose(mbox_t handle) {
 int MboxSend(mbox_t handle, int length, void* message) {
 
 	int intrs;
-	int wasEmpty = 0, buffer_no = used_buffers;
+	int wasEmpty = 0;
 	Link * mbuffer_link;
 
-	if(MailBox[handle].inuse == false)
+	if(MailBox[handle].inuse == 0)
 	{
 		printf("Currently passed mailbox handle : %d by calling process : %d is unallocated\n", handle, GetCurrentPid());
 		return MBOX_FAIL;
@@ -237,6 +215,8 @@ int MboxSend(mbox_t handle, int length, void* message) {
 		CondHandleWait(MailBox[handle].moreSpace);
 	}
 
+	//printf("Buffer size of queue before inserting messager by : %d is : %d\n", GetCurrentPid(), AQueueLength(&MailBox[handle].buffers));
+
 	if(AQueueLength(&MailBox[handle].buffers) == 0)
 		wasEmpty = 1;
 
@@ -248,13 +228,13 @@ int MboxSend(mbox_t handle, int length, void* message) {
 			return MBOX_FAIL;
 		}
 	
-		bcopy(message, Messg_Buffers[buffer_no].message, length); 
+		bcopy(message, Messg_Buffers[used_buffers++].message, 8); 
+		
+		Messg_Buffers[used_buffers - 1].size = length;
 
-		used_buffers++;
+		//printf("Original Message : %s Copied  : %s in : %d\n", (char *)message, (char *)(Messg_Buffers[used_buffers - 1].message), handle);
 
-		Messg_Buffers[buffer_no].size = length;
-
-		if((mbuffer_link = AQueueAllocLink(&Messg_Buffers[buffer_no])) == QUEUE_FAIL)
+		if((mbuffer_link = AQueueAllocLink(&Messg_Buffers[used_buffers - 1])) == QUEUE_FAIL)
 		{
 			printf("FATAL Error : Link object could not be created for message buffer : %d in process : %d",used_buffers - 1, GetCurrentPid());
 			exitsim();
@@ -267,7 +247,7 @@ int MboxSend(mbox_t handle, int length, void* message) {
 		}
 	}
 
-	printf("Message inserted by process : %d using buffer : %d with current count : %d\n", GetCurrentPid(), buffer_no, AQueueLength(&MailBox[handle].buffers));
+	//printf("Message inserted by process : %d using buffer : %d with current count : %d\n", GetCurrentPid(), buffer_no, AQueueLength(&MailBox[handle].buffers));
 
 	//if(wasEmpty)
 	CondHandleSignal(MailBox[handle].moreData);
@@ -300,7 +280,8 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 	int intrs;
 	int wasFull = 0, buffersSaturated = 0;
 	mbox_message * user_mesg;
-
+	Link *l;
+	
 	if(MailBox[handle].inuse == false)
 	{
 		printf("Currently passed mailbox handle : %d by calling process : %d is unallocated\n", handle, GetCurrentPid());
@@ -331,34 +312,32 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 	if(AQueueLength(&MailBox[handle].buffers) < MBOX_MAX_BUFFERS_PER_MBOX && used_buffers == MBOX_NUM_BUFFERS)
 		buffersSaturated = 1;
 
-	user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first);
+	//printf("Obtained message in receiver : %d from buffer index : %d\n", user_mesg->size, (user_mesg - Messg_Buffers));
 
-	printf("Received mailbox lock by calling process : %d with mailbox buffer count : %d\n", GetCurrentPid(), AQueueLength(&MailBox[handle].buffers));
-
-	//if((user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first)))
-	//{
-	//	printf("Undefined/unallocated Link pointer obtained from mailbox queue with handle :%d in process : %d\n", handle, GetCurrentPid());
+	if((user_mesg = (mbox_message *)AQueueObject(MailBox[handle].buffers.first)) == NULL)
+	{
+		printf("Undefined/unallocated Link pointer obtained from mailbox queue with handle :%d in process : %d\n", handle, GetCurrentPid());
 		//printf("MailBox buffer size : %d\n", AQueueLength(&MailBox[handle].buffers));
-	//	return MBOX_FAIL;
-	//}
+		return MBOX_FAIL;
+	}
 		
 	if(maxlength < user_mesg->size)
 	{
-		printf("Messge requested by user process : %d larger than acceptable message length (Messge length received : %d", GetCurrentPid(), user_mesg->size);
+		printf("Message : %s requested by user process : %d larger than acceptable message length : %d (Messge length received : %d)\n", user_mesg->message, GetCurrentPid(), maxlength, user_mesg->size);
 		return MBOX_FAIL;
 	}
 
 	bcopy(user_mesg->message, message, user_mesg->size); 
 
-	if(AQueueRemove(&MailBox[handle].buffers.first) == QUEUE_FAIL)
+	l = MailBox[handle].buffers.first;
+	MailBox[handle].buffers.first = AQueueNext(MailBox[handle].buffers.first);
+	if(AQueueRemove(&l) == QUEUE_FAIL)
 	{
 		printf("FATAL Error : Message object Link for buffer : %d received by process : %d could not be removed from queue of mailbox handle : %d",used_buffers, GetCurrentPid(), handle);
 		exitsim();
 	}
 
-	//used_buffers--;
-
-
+	used_buffers--;
 
 	//if(wasFull || buffersSaturated)
 	CondHandleSignal(MailBox[handle].moreSpace);
@@ -367,7 +346,7 @@ int MboxRecv(mbox_t handle, int maxlength, void* message) {
 
 	RestoreIntrs(intrs);
 
-  return user_mesg->size;
+  return user_mesg;
 }
 
 
@@ -391,7 +370,8 @@ int MboxCloseAllByPid(int pid) {
   		{
   			MailBox[i].procs_link[pid] = false;
 
-  			checkMailBoxUse(i);
+  			if(MailBox[i].process_count == false)
+				MailBox[i].inuse = 0;
    		}
    }
 

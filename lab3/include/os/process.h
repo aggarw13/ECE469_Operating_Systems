@@ -30,8 +30,15 @@
 #define	PROCESS_TYPE_SYSTEM	0x100
 #define	PROCESS_TYPE_USER	0x200
 
-#define RR_SCHED
+#define LT_SCHED
 
+// Macro for enabling Dynamic Lottery Scheduling
+#define DYNAMIC_SCHED
+
+//#define DEBUG
+//#define DYNAMIC_DEBUG
+//#define WAKEUP_DEBUG
+//#define RANDOM_DEBUG
 
 typedef	void (*VoidFunc)();
 
@@ -85,10 +92,10 @@ typedef struct PCB {
 #define PROCESS_CPUSTATS_FORMAT "CPUStats: Process %d has run for %d jiffies, prio = %d\n"
 
 extern PCB	*currentPCB;
-
 extern int total_tickets;
 extern PCB * idlePCB;
-
+extern int hasHigherPriorityProcesses;
+extern char idleproc_name[10];
 // Static Lottery Scheduling  Implementation
 extern PCB * chooseRandomProcessfromQueue();
 

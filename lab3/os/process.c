@@ -49,12 +49,22 @@ char	debugstr[200];
 // Static variable for storing total number of tickets rolled to user processes
 static int total_tickets;
 
-// 8bit Integer varaible to store the current statue of the core (i.e if it s not running any user process)
+// 8bit Integer varaible to store the current statue of the core (i.e if it is not running any user process)
 //static char isCoreIdle;
 
 // Variable for storing the presence of I/O bound or Synchronization Blocked Processes requiring Higher Prioirty
 // as an implementation of dynamic Lottery Scheduling
-static char hasHighPrioirtyProcesses;
+static int hasHighPriorityProcesses;
+int last_highprocpid;
+
+// Pointer to idle PCB
+PCB * idlePCB;
+
+// String for alloting name to idle Process
+char idleproc_name[10];
+
+//Tracking presence of high CPU priority process prevelance
+static unsigned int elapsed_highpriorityproc; 
 
 /*// Static Lottery Scheduling  Implementation
 PCB * chooseRandomProcessfromQueue();
@@ -73,6 +83,8 @@ int ProcessGetFromFile(int fd, unsigned char *buf, uint32 *addr, int max);
 uint32 get_argument(char *string);
 
 void ProcessIdle();
+
+void printQueueContents(Queue * queueu);
 
 
 //----------------------------------------------------------------------
@@ -111,6 +123,8 @@ void ProcessModuleInit () {
 
   total_tickets = 0;
   srandom(2000);
+  hasHighPriorityProcesses = 0;
+  dstrcpy(idleproc_name, "idle");
 
   // There are no processes running at this point, so currentPCB=NULL
   currentPCB = NULL;
@@ -198,6 +212,22 @@ void ProcessSetResult (PCB * pcb, uint32 result) {
   pcb->currentSavedFrame[PROCESS_STACK_IREG+1] = result;
 }
 
+void printQueueContents(Queue * q)
+{
+  Link * l = NULL; PCB * pcb = NULL;
+  int count = 0;
+
+  printf("Printing information about Queue\n");
+  
+  l = AQueueFirst(q); 
+  while(count++ < AQueueLength(q))
+  {
+    pcb = (PCB *)AQueueObject(l);
+    printf("Process with name : %s pid: %d and tickets allotment : %d pnice : %d\n", pcb->name, GetPidFromAddress(pcb), pcb->pnice, pcb->pinfo);
+    printf("Autowakeup =  %d\n", pcb->autoWakeUp); 
+    l = AQueueNext(l);
+  }
+}
 
 //----------------------------------------------------------------------
 //
@@ -263,11 +293,14 @@ void ProcessSchedule () {
     if (AQueueEmpty(&runQueue)) {
       if (!AQueueEmpty(&waitQueue))
       {
-        if(hasSleepingAutoWakeProcesses(&hasTimedOutSleepingProc) == 1) {
+        if(hasSleepingAutoWakeProcesses(&hasTimedOutSleepingProc)) {       
           //TODO : Needs to be re-visited
           if(!hasTimedOutSleepingProc)
-            ProcessFork (&ProcessIdle, 0, 0, 0, NULL, 0);
-        }
+          {
+            //printf("Invoking idle processn");
+            ProcessFork (&ProcessIdle, 0, 0, 0, idleproc_name, 0);
+          }
+          }
         else{
           printf("FATAL ERROR: no runnable processes, but there are sleeping processes waiting!\n");
           l = AQueueFirst(&waitQueue);
@@ -275,6 +308,7 @@ void ProcessSchedule () {
             pcb = AQueueObject(l);
             printf("Sleeping process %d: ", i++); printf("PID = %d\n", (int)(pcb - pcbs));
             l = AQueueNext(l);
+            exitsim();
           }
         }
       }
@@ -284,48 +318,53 @@ void ProcessSchedule () {
       }
     }
 
-    //printf("Updating process CPU utilization time\n");
-    pcb->last_end_time = ClkGetCurJiffies();
-    reevaluateProcessPriority(pcb);
+    //Updating CPU time utilization for currentPCB
+    currentPCB->last_end_time = ClkGetCurJiffies();
+    currentPCB->cum_jiffies += currentPCB->last_end_time - currentPCB->last_start_time;
 
-    // Checking if there timer counter has overflown/wrapped around
-    if(pcb->last_end_time > pcb->last_start_time)
-      pcb->cum_jiffies = pcb->last_end_time - pcb->last_start_time;
+    if(currentPCB->pinfo == 1)
+      printf(PROCESS_CPUSTATS_FORMAT, GetPidFromAddress(currentPCB), currentPCB->cum_jiffies, currentPCB->pnice);
 
-    if(pcb->pinfo == 1)
-      printf(PROCESS_CPUSTATS_FORMAT, GetPidFromAddress(pcb), pcb->cum_jiffies, pcb->pnice);
+    #ifdef DYNAMIC_SCHED
+      if(currentPCB->flag_yield == 0 && currentPCB->autoWakeUp == 0) 
+        reevaluateProcessPriority(currentPCB);    
+    # endif
 
     // Move the front of the queue to the end.  The running process was the one in front.
-    AQueueMoveAfter(&runQueue, AQueueLast(&runQueue), AQueueFirst(&runQueue));
+    if(currentPCB != idlePCB)
+      AQueueMoveAfter(&runQueue, AQueueLast(&runQueue), AQueueFirst(&runQueue));
 
-    //printf("Done with pcb swapping in run queue\n");
-
+     //Remove current PCB from Schedulig for if it has been interrupted to yield
+    if(currentPCB->flag_yield == 1 && AQueueLength(&runQueue) > 1)
+    {
+        total_tickets -= currentPCB->pnice;
+    }
     // Scan the waiting queue for waking up "autowake" processes
     WakeUpSleepingAutoWakeProcesses();
 
-    //printf("Done with waking up autowake processes\n");
-
-    //Remove current PCB from Schedulig for ifit has been interrupted to yield
-    if(pcb->flag_yield == 1)
-      AQueueRemove(&pcb->l);
-
     // Now, randomly choose a process from the queue
-    pcb = chooseRandomProcessfromQueue();
-    //pcb = (PCB *)AQueueObject(AQueueFirst(&runQueue));
+    if(AQueueLength(&runQueue) > 0)
+      pcb = chooseRandomProcessfromQueue();
+
     if(pcb != NULL) {
-        //Re-instate current yeilding process in RUn Queue
-        if(currentPCB->flag_yield)
-        {
-          currentPCB->flag_yield = 0;
-          AQueueInsertLast(&runQueue, currentPCB->l);
-        }
+      # ifdef DEBUG
+       printf("Process name : %d Tickets : %d Pinfo : %d\n", GetPidFromAddress(currentPCB), currentPCB->pnice, currentPCB->pinfo);
+     # endif
+       
+      //Re-instate current yeilding process in RUn Queue
+      if(currentPCB->flag_yield == 1)
+      {
+        currentPCB->flag_yield = 0;
+        if(AQueueLength(&runQueue) > 1)
+          total_tickets += currentPCB->pnice;
+      }
+      
       currentPCB = pcb;
       pcb->last_start_time = ClkGetCurJiffies();
       dbprintf ('p',"About to switch to PCB 0x%x,flags=0x%x @ 0x%x\n",
-        (int)pcb, pcb->flags, (int)(pcb->sysStackPtr[PROCESS_STACK_IAR]));
+      (int)pcb, pcb->flags, (int)(pcb->sysStackPtr[PROCESS_STACK_IAR]));
     }
-
- # endif
+  # endif
 
   // Clean up zombie processes here.  This is done at interrupt time
   // because it can't be done while the process might still be running
@@ -355,12 +394,11 @@ int hasSleepingAutoWakeProcesses(int * hasTimedOutSleepingProcess)
   int link_count = 0, found_proc = 0;
   *hasTimedOutSleepingProcess= 0;
 
-  printf("Reached\n");
   while(link_count != AQueueLength(&waitQueue))
   {
     if(pcb->autoWakeUp == 1)
     {
-      if(pcb->autosleep_time >= (ClkGetCurTime()- pcb->last_sleep_time))
+      if(pcb->autosleep_time <= (ClkGetCurJiffies() - pcb->last_sleep_time))
         *hasTimedOutSleepingProcess= 1;
       found_proc = 1;
     }
@@ -377,30 +415,56 @@ int hasSleepingAutoWakeProcesses(int * hasTimedOutSleepingProcess)
 // Choosing Process from RunQueue for for Lottery Scheduling 
 PCB * chooseRandomProcessfromQueue()
 { 
-    PCB * pcb = AQueueObject(AQueueFirst(&runQueue));
-    float cum_priority = 0;
-    float rand_priority = (random() % total_tickets);
-    
-    //printf("Reaches random number generation : %d\n", random() % total_tickets);
-    
-    while(cum_priority < rand_priority)
+    PCB * pcb = NULL;
+    int cum_priority = 0;
+    int rand_priority = random() % total_tickets;
+
+   #ifdef RANDOM_DEBUG
+      printf("Random Value generated :%d with total tikets : %d\n", rand_priority, total_tickets);
+      printQueueContents(&runQueue);
+    # endif
+
+    while(cum_priority <= rand_priority)
     {  
+    
+     if(pcb == NULL)
+        pcb = (PCB *)AQueueObject(AQueueFirst(&runQueue));
+      else
+        pcb = (PCB *)AQueueObject(AQueueNext(pcb->l));
       cum_priority += pcb->pnice; 
-      pcb = AQueueObject(AQueueNext(pcb->l));
     }
     return pcb;
 }
 
 void WakeUpSleepingAutoWakeProcesses()
 {
-
   PCB * pcb = (PCB *)AQueueObject(AQueueFirst(&waitQueue));
   int scanned_procs = 0;
-  
-  while(scanned_procs++ != AQueueLength(&waitQueue))
+ 
+  #ifdef WAKEUP_DEBUG
+  printf("Processes in WaitQueue : %d\n", AQueueLength(&waitQueue));
+  printQueueContents(&waitQueue);
+  # endif
+
+  while(scanned_procs++ < AQueueLength(&waitQueue))
   {
-      if(pcb->autoWakeUp == 1 && (int)(ClkGetCurTime() - pcb->last_sleep_time) >= pcb->autosleep_time)
-        ProcessWakeup(pcb);
+    if(scanned_procs == 1)
+      pcb = (PCB *)AQueueObject(AQueueFirst(&waitQueue));
+    else
+      pcb = (PCB *)AQueueObject(AQueueNext(pcb->l));
+    #ifdef WAKEUP_DEBUG
+    //printf("Currently Scanned PCB : %d has slept for : %d with autowakeup = %d\n", GetPidFromAddress(pcb), (ClkGetCurJiffies() - pcb->last_sleep_time) / 1000, pcb->autoWakeUp);
+    # endif
+    if(pcb->autoWakeUp == 1 && (int)(ClkGetCurJiffies() - pcb->last_sleep_time) >= pcb->autosleep_time)
+    { 
+      #ifdef WAKEUP_DEBUG
+      printf("Found process to wake up!\n");
+      printf("Autosleep time : %d\n", pcb->autosleep_time / 1000);
+      printf("Currently Scanned PCB : %d has slept for : %d\n", GetPidFromAddress(pcb), (ClkGetCurJiffies() - pcb->last_sleep_time) / 1000);
+      # endif
+      pcb->autoWakeUp = 0;
+      ProcessWakeup(pcb);
+    }
   }
 }
 
@@ -409,15 +473,29 @@ void WakeUpSleepingAutoWakeProcesses()
 void reevaluateProcessPriority(PCB * pcb)
 {
   uint32 duration = pcb->last_end_time - pcb->last_start_time; 
-  if(duration < CLOCK_PROCESS_JIFFIES && pcb->pnice < 19)
+  if(duration < 0.8 * CLOCK_PROCESS_JIFFIES && pcb->pnice < 19)
   {
+    total_tickets++;
     pcb->pnice++;
-    hasHighPrioirtyProcesses = 1;
+    #ifdef DYNAMIC_DEBUG
+      printf("Higher priority process found\n with utilization of :%d and process id : %d\n", duration, GetPidFromAddress(currentPCB));
+    # endif
+    hasHighPriorityProcesses = 1;
+    elapsed_highpriorityproc = ClkGetCurJiffies();
   }
 
-  if((duration % CLOCK_PROCESS_JIFFIES == 0 || duration % CLOCK_PROCESS_JIFFIES > CLOCK_PROCESS_JIFFIES - 0.2 * CLOCK_PROCESS_JIFFIES) 
-    && pcb->pnice > 1)
+  if((ClkGetCurJiffies() - elapsed_highpriorityproc) / CLOCK_PROCESS_JIFFIES > 2 * AQueueLength(&runQueue))
+    hasHighPriorityProcesses = 0; 
+
+  if(hasHighPriorityProcesses == 1 && pcb->pnice > 1 && (duration >= 0.9 * CLOCK_PROCESS_JIFFIES))
+  {
+    #ifdef DYNAMIC_DEBUG
+      printf("Lower priority process ticket updated with utilization of :%d for process : %d with tickets : %d\n", duration, GetPidFromAddress(currentPCB), pcb->pnice);
+    # endif 
   pcb->pnice--;
+  total_tickets--;
+  }
+
 }
 
 
@@ -433,7 +511,8 @@ void reevaluateProcessPriority(PCB * pcb)
 //
 //----------------------------------------------------------------------
 void ProcessSuspend (PCB *suspend) {
-  // Make sure it's already a runnable process.
+
+  //printf("Received pcb : %d for sleeping tickets : %d\n", GetPidFromAddress(suspend), suspend->pnice);
   dbprintf ('p', "ProcessSuspend (%d): function started\n", GetCurrentPid());
   ASSERT (suspend->flags & PROCESS_STATUS_RUNNABLE, "Trying to suspend a non-running process!\n");
   ProcessSetStatus (suspend, PROCESS_STATUS_WAITING);
@@ -451,9 +530,13 @@ void ProcessSuspend (PCB *suspend) {
     exitsim();
   }
 
-  total_tickets -= suspend->pnice;
-
+  //printf("Total tickets : %d before deduction of : %d\n", total_tickets, sus);
+  total_tickets = total_tickets - suspend->pnice;
+  //printf("Total tickets : %d\n", total_tickets);
+  suspend->last_sleep_time = ClkGetCurJiffies();
   dbprintf ('p', "ProcessSuspend (%d): function complete\n", GetCurrentPid());
+
+  //ProcessSchedule();
 }
 
 //----------------------------------------------------------------------
@@ -462,7 +545,7 @@ void ProcessSuspend (PCB *suspend) {
 //
 //	Wake up a process from its slumber.  This only involves putting
 //	it on the run queue; it's not guaranteed to be the next one to
-//	run.
+//	run.   
 //
 //	NOTE: This must only be called from an interrupt or trap.  It
 //	need not be followed immediately by ProcessSchedule() because
@@ -472,6 +555,8 @@ void ProcessSuspend (PCB *suspend) {
 void ProcessWakeup (PCB *wakeup) {
   dbprintf ('p',"Waking up PID %d.\n", (int)(wakeup - pcbs));
   // Make sure it's not yet a runnable process.
+  
+  //printf("Waking up process : %d\n", GetPidFromAddress(wakeup));
   ASSERT (wakeup->flags & PROCESS_STATUS_WAITING, "Trying to wake up a non-sleeping process!\n");
   ProcessSetStatus (wakeup, PROCESS_STATUS_RUNNABLE);
   if (AQueueRemove(&(wakeup->l)) != QUEUE_SUCCESS) {
@@ -562,6 +647,9 @@ int ProcessFork (VoidFunc func, uint32 param, int pnice, int pinfo,char *name, i
   uint32 dum[MAX_ARGS+8], count, offset;
   char *str;
 
+  //Remove 
+  //Link * l; int i; PCB * temp;
+
   dbprintf ('p', "ProcessFork (%d): function started\n", GetCurrentPid());
   intrs = DisableIntrs ();
   dbprintf ('I', "Old interrupt value was 0x%x.\n", intrs);
@@ -599,14 +687,18 @@ int ProcessFork (VoidFunc func, uint32 param, int pnice, int pinfo,char *name, i
   //Time Statistics Attributes
   pcb->pinfo = pinfo;
   pcb->cum_jiffies = 0;
-  
-  total_tickets += pnice;
 
   // Yield Flag
   pcb->flag_yield = 0;
 
   //Lottery Scheduling parameter
-  pcb->pnice = pnice;
+  if(pnice < 1)
+    pcb->pnice = 1;
+  else if(pnice > 19)
+    pcb->pnice = 19;
+  else
+    pcb->pnice = pnice;
+  total_tickets += pcb->pnice;
 
   //Sleep "auto wake" Feature Attributes 
   pcb->autoWakeUp = 0;
@@ -628,7 +720,7 @@ int ProcessFork (VoidFunc func, uint32 param, int pnice, int pinfo,char *name, i
   pcb->pagetable[0] = MemorySetupPte (newPage);
   newPage = MemoryAllocPage ();
   if (newPage == 0) {
-    printf ("bFATAL: couldn't allocate system stack - no free pages!\n");
+    printf ("FATAL: couldn't allocate system stack - no free pages!\n");
     exitsim ();	// NEVER RETURNS!
   }
   pcb->sysStackArea = newPage * MEMORY_PAGE_SIZE;
@@ -766,6 +858,17 @@ int ProcessFork (VoidFunc func, uint32 param, int pnice, int pinfo,char *name, i
     }
     RestoreIntrs (intrs);
   }
+    
+  //printf("Printing information about Existigng Run Queue\n");
+  //printf("Creating process with name : %s pid: %d and tickets allotment : %d pnice : %d\n", pcb->name, GetPidFromAddress(pcb), pcb->pnice, pcb->pinfo);
+
+ /* l = AQueueFirst(&runQueue); i =0;
+  while(i++ < AQueueLength(&runQueue))
+  {
+    temp = (PCB *)AQueueObject(l);
+    printf("Creating process with name : %s pid: %d and tickets allotment : %d pnice : %d\n", temp->name, GetPidFromAddress(temp), temp->pnice, temp->pinfo);
+    l = AQueueNext(l);
+  }*/
 
   // If this is the first process, make it the current one
   if (currentPCB == NULL) {
@@ -1169,6 +1272,7 @@ int GetPidFromAddress(PCB *pcb) {
 void ProcessUserSleep(int seconds) {
   currentPCB->autoWakeUp = 1;
   currentPCB->autosleep_time = seconds * 1000;
+  currentPCB->last_sleep_time = ClkGetCurTime();
   ProcessSuspend(currentPCB);
   // Your code here
 }

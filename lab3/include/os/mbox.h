@@ -13,12 +13,6 @@
 // Define your mailbox structures here
 //--------------------------------------------
 
-typedef struct missile_code {
-  int numprocs;
-  char really_important_char;
-} missile_code;
-
-
 typedef struct mbox_message {
 	int size;
 	char message[MBOX_MAX_MESSAGE_LENGTH];
@@ -50,7 +44,7 @@ int MboxSend(mbox_t m, int length, void *message);
 int MboxRecv(mbox_t m, int maxlength, void *message);
 int MboxCloseAllByPid(int pid);
 int AddProcessToMbox(int pid);
-void checkMailBoxUse(int);
+
 
 #ifndef false
 #define false 0
