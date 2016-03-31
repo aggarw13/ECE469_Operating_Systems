@@ -1,0 +1,1 @@
+work/spawn_counting.o: spawn_counting.c ../../../include/usertraps.h

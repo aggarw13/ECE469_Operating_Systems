@@ -4,7 +4,7 @@
 // Put all your #define's in memory_constants.h
 #include "memory_constants.h"
 
-#define FREEMAP_PAGENO_OFFSET_MASK 0x1f
+#define FREEMAP_PAGENO_OFFSET_MASK (uint32)0x1f
 
 extern int lastosaddress; // Defined in an assembly file
 

@@ -123,7 +123,7 @@ void ProcessSetStatus (PCB *pcb, int status) {
 //
 //----------------------------------------------------------------------
 void ProcessFreeResources (PCB *pcb) {
-  int i = 0;
+  int i = 0, page;
 
   // Allocate a new link for this pcb on the freepcbs queue
   if ((pcb->l = AQueueAllocLink(pcb)) == NULL) {
@@ -142,14 +142,21 @@ void ProcessFreeResources (PCB *pcb) {
   // STUDENT: Free any memory resources on process death here.
   //------------------------------------------------------------
   //  Free all pages allocated to system stack 
+
   MemoryFreePage(pcb->sysStackArea / MEM_PAGESIZE);
 
+  printf("Beginning to free resources belonging to %d\n", GetPidFromAddress(pcb));
+
+  MemoryFreePage((pcb->pagetable[PROCESS_PAGETABLE_NUMENTRIES - 1]) >> MEM_L1FIELD_FIRST_BITNUM);
+  
   for(i = 0; i <= 3; i++)
   {
+    //printf("Free'd page : 0x%x belonging to process : %d\n", pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM, GetPidFromAddress(pcb)); 
+    //printf("Reches here!\n");
     MemoryFreePage(pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM);
   }
 
-  MemoryFreePage((pcb->pagetable[MEM_MAX_VIRTUAL_ADDRESS / MEM_PAGESIZE]) >> MEM_L1FIELD_FIRST_BITNUM);
+  printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
   pcb->sysStackArea = 0;
 
   ProcessSetStatus (pcb, PROCESS_STATUS_FREE);
