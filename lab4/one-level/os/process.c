@@ -440,7 +440,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
     new_page = MemoryAllocPage();
     //printf("After allocating memory page for : %d\n",i);
     if (new_page == MEM_FAIL) {
-      printf ("FATAL: couldn't allocate memory - no free pages!\n");
+      printf ("FATAL : couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
      
@@ -451,7 +451,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   //Allocating page for User Stack
   new_page = MemoryAllocPage();
     if (new_page == MEM_FAIL) {
-      printf ("FATAL: couldn't allocate memory - no free pages!\n");
+      printf ("FATAL : couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
 

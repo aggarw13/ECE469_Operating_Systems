@@ -75,7 +75,7 @@ LC0:
 	.ascii "makeprocs (%d): Bad sem_create\n\000"
 	.align 2
 LC1:
-	.ascii "test2.dlx.obj\000"
+	.ascii "test1.dlx.obj\000"
 	.align 2
 LC2:
 	.ascii "------------------Makeprocs complete-------------------\n\000"

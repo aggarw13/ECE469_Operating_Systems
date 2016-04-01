@@ -1883,7 +1883,7 @@ LC37:
 	.ascii "\000"
 	.align 2
 LC38:
-	.ascii "FATAL: couldn\'t allocate memory - no free pages!\n\000"
+	.ascii "FATAL : couldn\'t allocate memory - no free pages!\n\000"
 	.align 2
 LC39:
 	.ascii "ProcessFork: stackframe = 0x%x\n\000"

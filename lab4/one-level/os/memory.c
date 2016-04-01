@@ -265,11 +265,15 @@ uint32 MemorySetupPte (uint32 page) {
 void MemoryFreePage(uint32 page) {
   // Finding physical page offset in freemap element chunk
   //offset = (uint32) (page & FREEMAP_PAGENO_OFFSET_MASK);
-  uint32 offset;
-  printf("Currently considering physical page : 0x%d\n", page);
-  offset = page - 31;
-  printf("efore freeing physical page : 0x%x with BITWSIE AND value : 0x%x\n", page, ~(0x01 << (31 - offset)));
-  freemap[page >> 5] &= ~(0x01 << (31 - offset));
-  printf("Value of freemap at index : %d is 0x%x\n", page >> 5, freemap[page >> 5]);
+  uint32 offset = (uint32) (page & FREEMAP_PAGENO_OFFSET_MASK);
+  //printf("Currently considering physical page : %d\n", page);
+  //printf("Offset = %d", offset); 
+ // if (offset == 0) {
+ //   freemap[page >> 5] &= 0xFFFFFFFF;
+ // } else {
+    //printf("efore freeing physical page : 0x%x with BITWSIE AND value : 0x%x\n", page, invert((0x01 << (31 - offset))));
+    freemap[page >> 5] &= invert((0x01 << (31 - offset)));
+  //}
+  //printf("Value of freemap at index : %d is 0x%x\n", page >> 5, freemap[page >> 5]);
 }
 
