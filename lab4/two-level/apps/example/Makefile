@@ -1,11 +1,13 @@
 default:
 	cd makeprocs; make
 	cd hello_world; make
+	cd part2; make
 	cd spawn_counting; make
 
 clean:
 	cd makeprocs; make clean
 	cd hello_world; make clean
+	cd part2; make clean
 	cd spawn_counting; make clean
 
 run:

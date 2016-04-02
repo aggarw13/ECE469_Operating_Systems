@@ -296,7 +296,7 @@ void MemoryFreePage(uint32 page) {
   //printf("Value of freemap at index : %d is 0x%x\n", page >> 5, freemap[page >> 5]);
 }
 
-uint32* getFreeL2pagetable() {
+uint32* getFreeL2pagetable(int pid) {
   int i = 0, l2_index;
   for (i = 0; i < 256; i++) {
     if (l2_pagetables[i].inuse == 0) {
@@ -306,13 +306,18 @@ uint32* getFreeL2pagetable() {
     }
   }
 
+  
   if (i == 256) return NULL;
-
+  l2_pagetables[l2_index].pid = pid;
   return (uint32*)l2_pagetables[l2_index].table;
 }
 
 void checkAndAllocateL2pagetable(PCB* pcb, uint32 l1_pageno) {
   if (((uint32*)pcb->pagetable[l1_pageno]) == NULL) {
-    pcb->pagetable[l1_pageno] = (uint32)getFreeL2pagetable();
+    pcb->pagetable[l1_pageno] = getFreeL2pagetable(GetPidFromAddress(pcb));
   } 
+}
+
+void FreeL2PagetablesForProc(int pid) {
+
 }

@@ -123,7 +123,7 @@ void ProcessSetStatus (PCB *pcb, int status) {
 //
 //----------------------------------------------------------------------
 void ProcessFreeResources (PCB *pcb) {
-  int i = 0, page;
+  int i = 0, userstack_page;
 
   // Allocate a new link for this pcb on the freepcbs queue
   if ((pcb->l = AQueueAllocLink(pcb)) == NULL) {
@@ -147,12 +147,19 @@ void ProcessFreeResources (PCB *pcb) {
 
   printf("Beginning to free resources belonging to %d\n", GetPidFromAddress(pcb));
 
+  userstack_page = pcb->sysStackPtr[PROCESS_STACK_USER_STACKPOINTER] >> MEM_L1FIELD_FIRST_BITNUM;
+
+  while(userstack_page < (MEM_MAX_VIRTUAL_ADDRESS >> MEM_L1FIELD_FIRST_BITNUM))
+  {
+    MemoryFreePage(pcb->pagetable[userstack_page++] >> MEM_L1FIELD_FIRST_BITNUM);    
+  }
+
   MemoryFreePage((pcb->pagetable[PROCESS_PAGETABLE_NUMENTRIES - 1]) >> MEM_L1FIELD_FIRST_BITNUM);
   
   for(i = 0; i <= 3; i++)
   {
     //printf("Free'd page : 0x%x belonging to process : %d\n", pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM, GetPidFromAddress(pcb)); 
-    //printf("Reches here!\n");
+    //printf("Reaches here!\n");
     MemoryFreePage(pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM);
   }
 
@@ -440,7 +447,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
     new_page = MemoryAllocPage();
     //printf("After allocating memory page for : %d\n",i);
     if (new_page == MEM_FAIL) {
-      printf ("FATAL : couldn't allocate memory - no free pages!\n");
+      printf ("FATAL: couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
      
@@ -451,7 +458,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   //Allocating page for User Stack
   new_page = MemoryAllocPage();
     if (new_page == MEM_FAIL) {
-      printf ("FATAL : couldn't allocate memory - no free pages!\n");
+      printf ("FATAL: couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
 

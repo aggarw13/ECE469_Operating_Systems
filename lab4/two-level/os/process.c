@@ -126,6 +126,7 @@ void ProcessSetStatus (PCB *pcb, int status) {
 void ProcessFreeResources (PCB *pcb) {
   int i = 0;
   int* inuse;
+  uint32 userstack_page;
   // Allocate a new link for this pcb on the freepcbs queue
   if ((pcb->l = AQueueAllocLink(pcb)) == NULL) {
     printf("FATAL ERROR: could not get Queue Link in ProcessFreeResources!\n");
@@ -150,6 +151,13 @@ void ProcessFreeResources (PCB *pcb) {
 
   MemoryFreePage(((uint32*)pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1] >> MEM_L2FIELD_FIRST_BITNUM);
   
+  userstack_page = pcb->sysStackPtr[PROCESS_STACK_USER_STACKPOINTER] >> MEM_L2FIELD_FIRST_BITNUM;
+
+  while(userstack_page < (MEM_MAX_VIRTUAL_ADDRESS >> MEM_L2FIELD_FIRST_BITNUM))
+  {
+    MemoryFreePage(pcb->pagetable[userstack_page & MEM_L1_BITS_MASK][userstack_page++ & MEM_L2_BITS_MASK] >> MEM_L2FIELD_FIRST_BITNUM);    
+  }
+
   for(i = 0; i <= 3; i++)
   {
     //printf("Free'd page : 0x%x belonging to process : %d\n", pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM, GetPidFromAddress(pcb)); 
@@ -157,12 +165,12 @@ void ProcessFreeResources (PCB *pcb) {
     MemoryFreePage(((uint32*)pcb->pagetable[0])[i] >> MEM_L2FIELD_FIRST_BITNUM);
   }
 
-  /*for (i=0; i < 4; i++) {
-    if (((uint32*)pcb->pagetable[i]) != NULL) {
-      inuse = (((uint32*)pcb->pagetable[i]) - 1)
+  for (i = 0; i < 4; i++) {
+    if (pcb->pagetable[i] != NULL) {
+      inuse = (pcb->pagetable[i] - 1); 
       *inuse = 0;
     }
-  }*/
+  } 
   printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
   pcb->sysStackArea = 0;
 
@@ -440,7 +448,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
  
   //Allocating pages and Filling page table for Code, and Data segments 
   
-  pcb->pagetable[0] = (uint32)getFreeL2pagetable();
+  pcb->pagetable[0] = (uint32)getFreeL2pagetable(GetPidFromAddress(pcb));
   for(i = 0; i < PROCESS_REQ_PAGES; i++)
   {
     new_page = MemoryAllocPage();
@@ -461,7 +469,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
       printf ("FATAL : couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
-  pcb->pagetable[3] = getFreeL2pagetable();
+  pcb->pagetable[3] = getFreeL2pagetable(GetPidFromAddress(pcb));
   //printf("Size of pagetable : %d\n", (uint32)(MEM_MAX_VIRTUAL_ADDRESS >> MEM_L1FIELD_FIRST_BITNUM));
   (pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1] = MemorySetupPte(new_page);
   //printf("pagetable entry = %x\n", (pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1]);

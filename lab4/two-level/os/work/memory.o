@@ -288,12 +288,12 @@ L23:
 	addui	r1,r1,(_l2_pagetables)&0xffff
 	lw	r2,-12(r30)
 	add	r4,r0,r2
-	slli	r3,r4,#0x8
+	slli	r3,r4,#0x7
 	add	r3,r3,r2
-	slli	r2,r3,#0x2
+	slli	r2,r3,#0x3
 	add	r1,r1,r2
 	addi	r2,r0,#0
-	sw	(r1),r2
+	sw	4(r1),r2
 L22:
 	lw	r2,-12(r30)
 	addi	r1,r2,#1
@@ -1185,13 +1185,13 @@ L60:
 L63:
 	lw	r1,-12(r30)
 	add	r3,r0,r1
-	slli	r2,r3,#0x8
+	slli	r2,r3,#0x7
 	add	r2,r2,r1
-	slli	r1,r2,#0x2
+	slli	r1,r2,#0x3
 	lhi	r31,((_l2_pagetables)>>16)&0xffff
 	addui	r31,r31,(_l2_pagetables)&0xffff
 	add	r2,r1,r31
-	lw	r1,(r2)
+	lw	r1,4(r2)
 	snei	r2,r1,#0
 	bnez	r2,L62
 	nop	; delay slot nop
@@ -1201,12 +1201,12 @@ L63:
 	addui	r1,r1,(_l2_pagetables)&0xffff
 	lw	r2,-12(r30)
 	add	r4,r0,r2
-	slli	r3,r4,#0x8
+	slli	r3,r4,#0x7
 	add	r3,r3,r2
-	slli	r2,r3,#0x2
+	slli	r2,r3,#0x3
 	add	r1,r1,r2
 	addi	r2,r0,#1
-	sw	(r1),r2
+	sw	4(r1),r2
 	j	L61
 	nop	; delay slot nop
 L64:
@@ -1226,13 +1226,23 @@ L61:
 	j	L59
 	nop	; delay slot nop
 L65:
+	lhi	r1,((_l2_pagetables)>>16)&0xffff
+	addui	r1,r1,(_l2_pagetables)&0xffff
+	lw	r2,-16(r30)
+	add	r4,r0,r2
+	slli	r3,r4,#0x7
+	add	r3,r3,r2
+	slli	r2,r3,#0x3
+	add	r1,r1,r2
+	lw	r2,(r30)
+	sw	(r1),r2
 	lw	r1,-16(r30)
 	add	r3,r0,r1
-	slli	r2,r3,#0x8
+	slli	r2,r3,#0x7
 	add	r2,r2,r1
-	slli	r1,r2,#0x2
-	lhi	r31,((_l2_pagetables+4)>>16)&0xffff
-	addui	r31,r31,(_l2_pagetables+4)&0xffff
+	slli	r1,r2,#0x3
+	lhi	r31,((_l2_pagetables+8)>>16)&0xffff
+	addui	r31,r31,(_l2_pagetables+8)&0xffff
 	add	r2,r1,r31
 	add	r1,r0,r2
 	j	L59
@@ -1272,9 +1282,19 @@ _checkAndAllocateL2pagetable:
 	snei	r2,r1,#0
 	bnez	r2,L67
 	nop	; delay slot nop
+	addi	r29,r29,#-8
+	add	r1,r0,r29
+	lw	r2,(r30)
+	sw	(r1),r2
+	jal	_GetPidFromAddress
+	nop	; delay slot nop
+	addi	r29,r29,#8
+	addi	r29,r29,#-8
 	add	r2,r0,r29
+	sw	(r2),r1
 	jal	_getFreeL2pagetable
 	nop	; delay slot nop
+	addi	r29,r29,#8
 	lw	r2,(r30)
 	lw	r3,4(r30)
 	addi	r4,r0,#4
@@ -1296,6 +1316,22 @@ L66:
 	jr	r31
 	nop
 .endproc _checkAndAllocateL2pagetable
+	.align 2
+.proc _FreeL2PagetablesForProc
+.global _FreeL2PagetablesForProc
+_FreeL2PagetablesForProc:
+;  Function 'FreeL2PagetablesForProc'; 0 bytes of locals, 0 regs to save.
+	sw	-4(r29),r30	; push fp
+	add	r30,r0,r29	; fp = sp
+	sw	-8(r29),r31	; push ret addr
+	subui	r29,r29,#8	; alloc local storage
+L68:
+	lw	r31,-8(r30)
+	add	r29,r0,r30
+	lw	r30,-4(r30)
+	jr	r31
+	nop
+.endproc _FreeL2PagetablesForProc
 .data
 	.align 2
 _freemap:
@@ -1311,7 +1347,7 @@ _freemapmax:
 	.space 4
 	.align 2
 _l2_pagetables:
-	.space 263168
+	.space 264192
 .text
 	.align 2
 .proc _invert

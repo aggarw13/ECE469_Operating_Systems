@@ -3,6 +3,7 @@
 
 #define HELLO_WORLD "hello_world.dlx.obj"
 #define SPAWN_COUNTING "spawn_counting.dlx.obj"
+#define PART2_PROG "part2.dlx.obj"
 #define INT_MAX 0x7fffffff
 #define NUM_SPAWN_PROCS 30
 
@@ -57,19 +58,33 @@ void main (int argc, char *argv[])
   process_create(HELLO_WORLD, s_procs_completed_str, NULL);
 
   sem_wait(s_procs_completed);
-
-  // Accessing Memory Virtual Address outiside the virtual address space
-  /*Printf("-------------------------------Part 2--------------------------------\n");
-  outside_vaddr = (int *)(0x400003);   //Word address just outisde the virtual memory address
-  (*outside_vaddr) = (unsigned int)INT_MAX;*/
-
+   
+  // Accessing memory outside the virtual memory access
+  Printf("-------------------------------Part 2-------------------------------\n");
+  if ((s_procs_completed = sem_create(0)) == SYNC_FAIL) {
+    Printf("makeprocs (%d): Bad sem_create\n", getpid());
+    Exit();
+  }
+  ditoa(s_procs_completed, s_procs_completed_str);
+  
+  Printf("Creating child process : %s\n",(char *)PART2_PROG);
+  process_create(PART2_PROG, s_procs_completed_str, NULL);
+  sem_wait(s_procs_completed);
+ 
+  Printf("Signal from child process (that accesses virtual address outside allocated pages)\n");
   // Make user stack grow beyond a page  
   Printf("-------------------------------Part 3-------------------------------\n");
-  //consume_userstack();
-  //new_page_var = (unsigned int)large_buff;
+  consume_userstack();
   
   // Creating 100 Hello World processes
-  /*Printf("-------------------------------Part 4-------------------------------\n");
+  Printf("-------------------------------Part 4-------------------------------\n");
+  if ((s_procs_completed = sem_create(0)) == SYNC_FAIL) {
+    Printf("makeprocs (%d): Bad sem_create\n", getpid());
+    Exit();
+  }
+
+  ditoa(s_procs_completed, s_procs_completed_str);
+
   Printf("Creating a row of 100 Hello World processes in sequence to test correct memory paging allocation and deallocation\n");
   for(i=0; i<100; i++) {
     Printf("makeprocs (%d): Creating hello world #%d\n", getpid(), i);
@@ -81,9 +96,9 @@ void main (int argc, char *argv[])
   //sem_wait(s_procs_completed);
   }
   Printf("Completed execution of 100 sequential Hello World processes with successful memory management\n");
-  */
+  
   // Creating 30 simultaneous large counting processes for memory exhaustion test
- /* Printf("-----------------------------Part 5----------------------------------\n");
+  Printf("-----------------------------Part 5----------------------------------\n");
   if ((s_procs_completed = sem_create(-NUM_SPAWN_PROCS + 1)) == SYNC_FAIL) {
     Printf("makeprocs (%d): Bad sem_create\n", getpid());
     Exit();
@@ -102,13 +117,12 @@ void main (int argc, char *argv[])
   if (sem_wait(s_procs_completed) != SYNC_SUCCESS) {
       Printf("Bad semaphore s_procs_completed (%d) in %s\n", s_procs_completed, argv[0]);
       Exit();
- }*/
- 
-  // Accessing memory outside the virtual memory access
-  /*Printf("-------------------------------Part 6-------------------------------\n");
-  stackgrowth_addr = (unsigned int *)(0x3feffc); //Word address just before the user stack page
-  (*stackgrowth_addr) = (unsigned int)(0xff);
-*/
+ }
+
+  // Accessing Memory Virtual Address outside the virtual address space
+  Printf("-------------------------------Part 6--------------------------------\n");
+  outside_vaddr = (int *)(0x400003);   //Word address just outisde the virtual memory address
+  (*outside_vaddr) = (unsigned int)INT_MAX;
 
   Printf("-------------------------------------------------------------------------------------\n");
   Printf("makeprocs (%d): All other processes completed, exiting main process.\n", getpid());
