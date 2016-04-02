@@ -16,8 +16,8 @@ void main (int argc, char *argv[])
 
   //comment the following 2 lines to run test2.
 
-  //process_create("test1.dlx.obj", sem_str, NULL);
-  //sem_wait(sem);
+  process_create("test1.dlx.obj", sem_str, NULL);
+  sem_wait(sem);
 
   process_create("test2.dlx.obj", sem_str, NULL);
   sem_wait(sem);

@@ -1,7 +1,7 @@
 ; Linked by DLX-LD.
 ; MemSize 24576
-; Data size: 105
-; Text size: 4284
+; Data size: 121
+; Text size: 4328
 ; Stack size: 8192
 .text 0x1000
 .data 0x3000
@@ -82,9 +82,12 @@ LC0_LF0:
 .ascii "makeprocs (%d): Bad sem_create\n\000"
 .align 2
 LC1_LF0:
-.ascii "test2.dlx.obj\000"
+.ascii "test1.dlx.obj\000"
 .align 2
 LC2_LF0:
+.ascii "test2.dlx.obj\000"
+.align 2
+LC3_LF0:
 .ascii "------------------Makeprocs complete-------------------\n\000"
 .text
 .align 2
@@ -141,6 +144,17 @@ L16_LF0:
 	nop; not filled.
 	lhi	r4,((LC2_LF0)>>16)&0xffff
 	addui	r4,r4,(LC2_LF0)&0xffff
+	sw	(r29),r4
+	sw	4(r29),r2
+	addi	r4,r0,#0
+	sw	8(r29),r4
+	jal	_process_create
+	nop; not filled.
+	sw	(r29),r3
+	jal	_sem_wait
+	nop; not filled.
+	lhi	r4,((LC3_LF0)>>16)&0xffff
+	addui	r4,r4,(LC3_LF0)&0xffff
 	sw	(r29),r4
 	jal	_Printf
 	nop; not filled.

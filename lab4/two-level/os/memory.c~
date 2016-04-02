@@ -261,7 +261,7 @@ int MemoryAllocPage(void) {
 
   phys_page = (index << 5) + pageno - 1;
 
-  //printf("Physical page = %d and lastOSaddress page is : %d\n", phys_page, lastosaddress >> MEM_L2FIELD_FIRST_BITNUM);
+  printf("Physical page = %d and lastOSaddress page is : %d\n", phys_page, lastosaddress >> MEM_L2FIELD_FIRST_BITNUM);
 
   freemap[index] |= (uint32) (0x1 << (31 - pageno + 1));  
   
