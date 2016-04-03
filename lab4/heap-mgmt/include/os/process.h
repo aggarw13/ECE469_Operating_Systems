@@ -33,6 +33,14 @@
 
 typedef	void (*VoidFunc)();
 
+// Heap Block Meta Information Structure
+typedef struct heap_block
+{
+  void * startAddr;
+  int size;
+  int isOccupied;
+}heap_block;
+
 // Process control block
 typedef struct PCB {
   uint32	*currentSavedFrame; // -> current saved frame.  MUST BE 1ST!
@@ -43,6 +51,7 @@ typedef struct PCB {
   uint32	pagetable[((MEM_MAX_VIRTUAL_ADDRESS)>> MEM_L1FIELD_FIRST_BITNUM) + 1]; // Statically allocated page table
   Link		*l;		// Used for keeping PCB in queues
   Queue heap_queue;
+  heap_block heap_blocks[100];
 } PCB;
 
 extern PCB	*currentPCB;

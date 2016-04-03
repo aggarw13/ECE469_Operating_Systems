@@ -13,13 +13,6 @@ extern int lastosaddress; // Defined in an assembly file
 //--------------------------------------------------------
 
 //Heap Management Block
-typedef struct heap_block
-{
-	void * startAddr;
-	int size;
-	int inuse;
-	int isOccupied;
-}heap_block;
 
 int MemoryGetSize();
 void MemoryModuleInit();
@@ -37,6 +30,6 @@ void MemoryFreePage(uint32);
 uint32 MemorySetupPte (uint32);
 void *malloc(PCB *, int);
 int mfree(PCB *, void *);
-int getFreeBlock();
+int getFreeBlock(PCB *);
 
 #endif	// _memory_h_

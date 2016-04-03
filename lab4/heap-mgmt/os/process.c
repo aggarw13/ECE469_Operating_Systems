@@ -91,7 +91,10 @@ void ProcessModuleInit () {
       //pcbs[i].pagetable[j] = 0;
     }  
 
-    
+    for(j = 0;j < 100; j++)
+    {
+      pcbs[i].heap_blocks[j].isOccupied = 0;
+    }  
 
     // Finally, insert the link into the queue
     if (AQueueInsertFirst(&freepcbs, pcbs[i].l) != QUEUE_SUCCESS) {
@@ -405,7 +408,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   uint32 offset;           // Used in parsing command line argument strings, holds offset (in bytes) from 
                            // beginning of the string to the current argument.
   uint32 initial_user_params_bytes;  // total number of bytes in initial user parameters array
-  Link * heap;
+  Link * heap; int block_index;
   heap_block block;
   
 
@@ -442,7 +445,6 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   // virtual address space), and 4 pages for user code and global data.
  
   //Allocating pages and Filling page table for Code, and Data segments 
-
   for(i = 0; i < PROCESS_REQ_PAGES; i++)
   {
     //printf("Before allocation memory page : %d!\n", i);
@@ -456,11 +458,12 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   }
 
   //Storing the entire page as one heap block
-  block.startAddr = (void *)(4 * MEM_PAGESIZE);
-  block.size = MEM_PAGESIZE;
-  block.isOccupied = 0;
-  AQueueInit(&pcbs->heap_queue);
-  heap = AQueueAllocLink(&block);
+  block_index = getFreeBlock(pcb);
+  pcb->heap_blocks[block_index].startAddr = (void *)(4 * MEM_PAGESIZE);
+  pcb->heap_blocks[block_index].size = MEM_PAGESIZE;
+  pcb->heap_blocks[block_index].isOccupied = 0;
+  AQueueInit(&pcb->heap_queue);
+  heap = AQueueAllocLink(&pcb->heap_blocks[block_index]);
   AQueueInsertFirst(&(pcb->heap_queue), heap);
 
   //Allocating page for User Stack
@@ -530,7 +533,6 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
   stackframe[PROCESS_STACK_PTBASE] = (uint32)&(pcb->pagetable[0]);
   stackframe[PROCESS_STACK_PTSIZE] = PROCESS_PAGETABLE_NUMENTRIES;
   stackframe[PROCESS_STACK_PTBITS] = (MEM_L1FIELD_FIRST_BITNUM | MEM_L1FIELD_FIRST_BITNUM << 16);
-  //printf("Completing PCB \n");
 
   if (isUser) {
     //dbprintf ('p', "About to load %s\n", name);

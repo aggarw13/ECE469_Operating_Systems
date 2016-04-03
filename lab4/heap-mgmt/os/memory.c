@@ -61,8 +61,6 @@ void MemoryModuleInit() {
   uint32 lastOSaddr_page = (lastosaddress >> MEM_L1FIELD_FIRST_BITNUM);
   uint32 pageno_mapoffset = lastOSaddr_page & FREEMAP_PAGENO_OFFSET_MASK;
   
-  for (i = 0; i < 400; i++)
-    heap_blocks[i].inuse = 0;
   for(i = 0; i <= (lastOSaddr_page >> 5) - 1; i++)
     freemap[i] = 0xffffffff;
 
@@ -311,7 +309,7 @@ void *malloc(PCB* pcb, int memsize) {
   block->isOccupied = 1;
   
   if (block->size == req_size) {
-    printf("Created a heap block of size %d bytes: virtual address 0x%x, physical address 0x%x\n", req_size, block->startAddr, (pcb->pagetable[4] & (uint32)MEM_ADDRESS_OFFSET_MASK) + ((uint32)block->startAddr & MEM_ADDRESS_OFFSET_MASK));
+    printf("Created a heap block of size %d bytes: virtual address 0x%x, physical address 0x%x\n", req_size, block->startAddr, (pcb->pagetable[4] & (uint32)MEM_ADDR_PAGENUM_MASK) + ((uint32)block->startAddr & MEM_ADDRESS_OFFSET_MASK));
     return block->startAddr;
   }
    
@@ -324,14 +322,14 @@ void *malloc(PCB* pcb, int memsize) {
 
   //printf("Outside While loop\n");
   //Creating new block
-  block_ind = getFreeBlock();
-  heap_blocks[block_ind].size = rem_size;
-  heap_blocks[block_ind].startAddr = (void *)((uint32)block->startAddr + req_size);
-  heap_blocks[block_ind].isOccupied = 0;
+  block_ind = getFreeBlock(pcb);
+  pcb->heap_blocks[block_ind].size = rem_size;
+  pcb->heap_blocks[block_ind].startAddr = (void *)((uint32)block->startAddr + req_size);
+  pcb->heap_blocks[block_ind].isOccupied = 0;
   
-  l = AQueueAllocLink(&heap_blocks[block_ind]);
+  l = AQueueAllocLink(&pcb->heap_blocks[block_ind]);
   AQueueInsertAfter(&pcb->heap_queue, temp, l);
-  printf("Created a heap block of size %d bytes: virtual address 0x%x, physical address 0x%x\n", req_size, block->startAddr, (pcb->pagetable[4] & (uint32)MEM_ADDRESS_OFFSET_MASK) + ((uint32)block->startAddr & MEM_ADDRESS_OFFSET_MASK));
+  printf("Created a heap block of size %d bytes: virtual address 0x%x, physical address 0x%x\n", req_size, block->startAddr, (pcb->pagetable[4] & (uint32)MEM_ADDR_PAGENUM_MASK) + ((uint32)block->startAddr & MEM_ADDRESS_OFFSET_MASK));
   return block->startAddr;
 }
 
@@ -347,12 +345,12 @@ int mfree(PCB * pcb, void * ptr)
     return MEM_FAIL;
   }
 
-
   while (l != NULL) {
     if (block->startAddr == ptr) {
       //block found
       found = l;
       bytes_freed = block->size;
+      printf("Freeing heap block of size %d bytes: virtual address 0x%x, physical address 0x%x\n", bytes_freed, (uint32)block->startAddr, (pcb->pagetable[4] & MEM_ADDR_PAGENUM_MASK) + ((uint32)block->startAddr & MEM_ADDRESS_OFFSET_MASK)); 
       block->isOccupied = 0;
       break;
     }
@@ -379,17 +377,17 @@ int mfree(PCB * pcb, void * ptr)
     block->startAddr = prev_block->startAddr;
     AQueueRemove(&l);
   }
-  
+
   return bytes_freed;
 }
 
-int getFreeBlock() {
+int getFreeBlock(PCB * pcb) {
   int i = 0, index;
-  for (i = 0; i < 400; i++) {
-    if (heap_blocks[i].inuse == 0) {
-      heap_blocks[i].inuse = 1;
+  for (i = 0; i < 100; i++) {
+    if (pcb->heap_blocks[i].isOccupied == 0) {
+      pcb->heap_blocks[i].isOccupied = 1;
       return i;
     }
   }
-  return -1;
+  return MEM_FAIL;
 }
