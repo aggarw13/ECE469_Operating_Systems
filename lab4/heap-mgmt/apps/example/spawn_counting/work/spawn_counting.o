@@ -1,0 +1,124 @@
+; Compiled by GCC
+.data
+	.align 2
+LC0:
+	.ascii "Usage: %s <semaphore handle>\n\000"
+	.align 2
+LC1:
+	.ascii "Child Process : %d is beginning to count\n\000"
+	.align 2
+LC2:
+	.ascii "Child Process : %d has completed half of the counting sequence\n\000"
+	.align 2
+LC3:
+	.ascii "spawn_counting (%d): Bad semaphore proc_sem (%d)!\n\000"
+	.align 2
+LC4:
+	.ascii "Spawn Counting :%d has completed counting!\n\000"
+.text
+	.align 2
+.proc _main
+.global _main
+_main:
+;  Function 'main'; 0 bytes of locals, 0 regs to save.
+	sw	-4(r29),r30	; push fp
+	add	r30,r0,r29	; fp = sp
+	sw	-8(r29),r31	; push ret addr
+	subui	r29,r29,#8	; alloc local storage
+	lw	r2,(r30)
+	lw	r3,4(r30)
+	jal	___main
+	nop	; not filled.
+	snei	r1,r2,#2
+	beqz	r1,L2
+	nop	; not filled.
+	addi	r29,r29,#-8
+	lhi	r4,((LC0)>>16)&0xffff
+	addui	r4,r4,(LC0)&0xffff
+	sw	(r29),r4
+	lw	r1,(r3)
+	sw	4(r29),r1
+	jal	_Printf
+	nop	; not filled.
+	jal	_Exit
+	nop	; not filled.
+	addi	r29,r29,#8
+L2:
+	addi	r29,r29,#-16
+	lw	r3,4(r3)
+	sw	(r29),r3
+	addi	r4,r0,#0
+	sw	4(r29),r4
+	addi	r4,r0,#10
+	sw	8(r29),r4
+	jal	_dstrtol
+	nop	; not filled.
+	add	r3,r0,r1
+	jal	_getpid
+	nop	; not filled.
+	lhi	r4,((LC1)>>16)&0xffff
+	addui	r4,r4,(LC1)&0xffff
+	sw	(r29),r4
+	sw	4(r29),r1
+	jal	_Printf
+	nop	; not filled.
+	addi	r2,r0,#0
+	addi	r29,r29,#16
+L6:
+	lhi	r4,#1
+	addui	r4,r4,#65535
+	seq	r1,r2,r4
+	beqz	r1,L5
+	nop	; not filled.
+	jal	_getpid
+	nop	; not filled.
+	addi	r29,r29,#-8
+	lhi	r4,((LC2)>>16)&0xffff
+	addui	r4,r4,(LC2)&0xffff
+	sw	(r29),r4
+	sw	4(r29),r1
+	jal	_Printf
+	nop	; not filled.
+	addi	r29,r29,#8
+L5:
+	addi	r2,r2,#1
+	lhi	r4,#3
+	addui	r4,r4,#65534
+	sle	r1,r2,r4
+	bnez	r1,L6
+	nop	; not filled.
+	addi	r29,r29,#-8
+	sw	(r29),r3
+	jal	_sem_signal
+	nop	; not filled.
+	addi	r29,r29,#8
+	snei	r1,r1,#1
+	beqz	r1,L9
+	nop	; not filled.
+	jal	_getpid
+	nop	; not filled.
+	addi	r29,r29,#-16
+	lhi	r4,((LC3)>>16)&0xffff
+	addui	r4,r4,(LC3)&0xffff
+	sw	(r29),r4
+	sw	4(r29),r1
+	sw	8(r29),r3
+	jal	_Printf
+	nop	; not filled.
+	jal	_Exit
+	nop	; not filled.
+	addi	r29,r29,#16
+L9:
+	jal	_getpid
+	nop	; not filled.
+	addi	r29,r29,#-8
+	lhi	r4,((LC4)>>16)&0xffff
+	addui	r4,r4,(LC4)&0xffff
+	sw	(r29),r4
+	sw	4(r29),r1
+	jal	_Printf
+	nop	; not filled.
+	addi	r29,r29,#8
+	jal	_exit
+	nop
+.endproc _main
