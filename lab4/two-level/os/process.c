@@ -147,8 +147,6 @@ void ProcessFreeResources (PCB *pcb) {
 
   MemoryFreePage(pcb->sysStackArea / MEM_PAGESIZE);
 
-  printf("Beginning to free resources belonging to %d\n", GetPidFromAddress(pcb));
-
   MemoryFreePage(((uint32*)pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1] >> MEM_L2FIELD_FIRST_BITNUM);
   
   userstack_page = pcb->sysStackPtr[PROCESS_STACK_USER_STACKPOINTER] >> MEM_L2FIELD_FIRST_BITNUM;
@@ -161,7 +159,6 @@ void ProcessFreeResources (PCB *pcb) {
   for(i = 0; i <= 3; i++)
   {
     //printf("Free'd page : 0x%x belonging to process : %d\n", pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM, GetPidFromAddress(pcb)); 
-    //printf("Reches here!\n");
     MemoryFreePage(((uint32*)pcb->pagetable[0])[i] >> MEM_L2FIELD_FIRST_BITNUM);
   }
 
@@ -171,7 +168,8 @@ void ProcessFreeResources (PCB *pcb) {
       *inuse = 0;
     }
   } 
-  printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
+
+  //printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
   pcb->sysStackArea = 0;
 
   ProcessSetStatus (pcb, PROCESS_STATUS_FREE);
@@ -448,7 +446,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
  
   //Allocating pages and Filling page table for Code, and Data segments 
   
-  pcb->pagetable[0] = (uint32)getFreeL2pagetable(GetPidFromAddress(pcb));
+  pcb->pagetable[0] = (uint32)getFreeL2pagetable();
   for(i = 0; i < PROCESS_REQ_PAGES; i++)
   {
     new_page = MemoryAllocPage();
@@ -469,7 +467,7 @@ int ProcessFork (VoidFunc func, uint32 param, char *name, int isUser) {
       printf ("FATAL : couldn't allocate memory - no free pages!\n");
       exitsim (); // NEVER RETURNS!
     }
-  pcb->pagetable[3] = getFreeL2pagetable(GetPidFromAddress(pcb));
+  pcb->pagetable[3] = getFreeL2pagetable();
   //printf("Size of pagetable : %d\n", (uint32)(MEM_MAX_VIRTUAL_ADDRESS >> MEM_L1FIELD_FIRST_BITNUM));
   (pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1] = MemorySetupPte(new_page);
   //printf("pagetable entry = %x\n", (pcb->pagetable[3])[MEM_L2TABLE_SIZE - 1]);

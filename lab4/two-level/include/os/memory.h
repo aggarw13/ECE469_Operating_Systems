@@ -26,12 +26,10 @@ int MemoryPageFaultHandler(PCB *pcb);
 int MemoryAllocPage ();
 void MemoryFreePage(uint32);
 uint32 MemorySetupPte (uint32);
-uint32* getFreeL2pagetable(int);
+uint32* getFreeL2pagetable();
 void checkAndAllocateL2pagetable(PCB*, uint32);
-void FreeL2PagetablesForProc(int);
 
 typedef struct l2_pagetable {
-  int pid;
   uint32 inuse;
   uint32 table[MEM_L2TABLE_SIZE];
 } l2_pagetable;

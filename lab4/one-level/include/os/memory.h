@@ -11,7 +11,6 @@ extern int lastosaddress; // Defined in an assembly file
 //--------------------------------------------------------
 // Existing function prototypes:
 //--------------------------------------------------------
-
 int MemoryGetSize();
 void MemoryModuleInit();
 uint32 MemoryTranslateUserToSystem (PCB *pcb, uint32 addr);
@@ -25,6 +24,6 @@ int MemoryPageFaultHandler(PCB *pcb);
 //---------------------------------------------------------
 int MemoryAllocPage ();
 void MemoryFreePage(uint32);
-uint32 MemorySetupPte (uint32);
+uint32 MemorySetupPte(uint32);
 
 #endif	// _memory_h_

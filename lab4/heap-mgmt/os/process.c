@@ -147,7 +147,7 @@ void ProcessFreeResources (PCB *pcb) {
 
   MemoryFreePage(pcb->sysStackArea / MEM_PAGESIZE);
 
-  printf("Beginning to free resources belonging to %d\n", GetPidFromAddress(pcb));
+  //printf("Beginning to free resources belonging to %d\n", GetPidFromAddress(pcb));
 
   userstack_page = pcb->sysStackPtr[PROCESS_STACK_USER_STACKPOINTER] >> MEM_L1FIELD_FIRST_BITNUM;
 
@@ -158,14 +158,13 @@ void ProcessFreeResources (PCB *pcb) {
 
   MemoryFreePage((pcb->pagetable[PROCESS_PAGETABLE_NUMENTRIES - 1]) >> MEM_L1FIELD_FIRST_BITNUM);
   
-  for(i = 0; i <= 3; i++)
+  for(i = 0; i < PROCESS_REQ_PAGES; i++)
   {
     //printf("Free'd page : 0x%x belonging to process : %d\n", pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM, GetPidFromAddress(pcb)); 
-    //printf("Reaches here!\n");
     MemoryFreePage(pcb->pagetable[i] >> MEM_L1FIELD_FIRST_BITNUM);
   }
 
-  printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
+  //printf("Free'd contiguous pages belonging to process : %d\n", GetPidFromAddress(pcb));
   pcb->sysStackArea = 0;
 
   ProcessSetStatus (pcb, PROCESS_STATUS_FREE);

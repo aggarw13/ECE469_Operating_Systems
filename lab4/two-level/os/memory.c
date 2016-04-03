@@ -93,10 +93,9 @@ uint32 MemoryTranslateUserToSystem (PCB *pcb, uint32 addr) {
   //printf("MemoryTranslateToUser() : l2_pageno = %d\n", l2_pageno);
   //printf("MemoryTranslateToUser() : l1_pageno = %d\n", l1_pageno);
   //printf("pt_entry = 0x%x\n", pt_entry); 
-  if((pt_entry & MEM_PTE_VALID) == 0){
-    
-    return MEM_FAIL;
-  }
+  if((pt_entry & MEM_PTE_VALID) == 0)
+      return MemoryPageFaultHandler(pcb);
+
   //printf("Inmemory tranbslate to user\n");
   //printf("Virtual address : 0x%x converted to physical address : 0x%x for process : %s\n", addr, (pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset, pcb->name);
   return (uint32)((pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset);
@@ -207,10 +206,10 @@ int MemoryPageFaultHandler(PCB *pcb) {
   uint32 l2_pageno = ((addr >> MEM_L2FIELD_FIRST_BITNUM) & MEM_L2_PAGENUM_MASK);
   uint32 l1_pageno = (uint32)(addr >> MEM_L1FIELD_FIRST_BITNUM);
  
-  printf("MemoryPageFaultHandler() : l2_pageno = %d\n", l2_pageno);
-  printf("MemoryPageFaultHandler() : l1_pageno = %d\n", l1_pageno);
-  printf("MemoryPageFaultHandler() : PROCESS_STACK_USER_STACKPOINTER = 0x%x\n", pcb->currentSavedFrame[PROCESS_STACK_USER_STACKPOINTER]);
-  printf("MemoryPageFaultHandler() : pagetable entry = 0x%x\n", ((uint32*)pcb->pagetable[l1_pageno])[l2_pageno]);
+  //printf("MemoryPageFaultHandler() : l2_pageno = %d\n", l2_pageno);
+  //printf("MemoryPageFaultHandler() : l1_pageno = %d\n", l1_pageno);
+  //printf("MemoryPageFaultHandler() : PROCESS_STACK_USER_STACKPOINTER = 0x%x\n", pcb->currentSavedFrame[PROCESS_STACK_USER_STACKPOINTER]);
+  //printf("MemoryPageFaultHandler() : pagetable entry = 0x%x\n", ((uint32*)pcb->pagetable[l1_pageno])[l2_pageno]);
   /* // segfault if the faulting address is not part of the stack */
   if (vpagenum < stackpagenum) { 
     dbprintf('m', "addr = %x\nsp = %x\n", addr, pcb->currentSavedFrame[PROCESS_STACK_USER_STACKPOINTER]); 
@@ -296,7 +295,7 @@ void MemoryFreePage(uint32 page) {
   //printf("Value of freemap at index : %d is 0x%x\n", page >> 5, freemap[page >> 5]);
 }
 
-uint32* getFreeL2pagetable(int pid) {
+uint32* getFreeL2pagetable() {
   int i = 0, l2_index;
   for (i = 0; i < 256; i++) {
     if (l2_pagetables[i].inuse == 0) {
@@ -305,10 +304,8 @@ uint32* getFreeL2pagetable(int pid) {
       break;
     }
   }
-
   
   if (i == 256) return NULL;
-  l2_pagetables[l2_index].pid = pid;
   return (uint32*)l2_pagetables[l2_index].table;
 }
 
@@ -316,8 +313,4 @@ void checkAndAllocateL2pagetable(PCB* pcb, uint32 l1_pageno) {
   if (((uint32*)pcb->pagetable[l1_pageno]) == NULL) {
     pcb->pagetable[l1_pageno] = getFreeL2pagetable(GetPidFromAddress(pcb));
   } 
-}
-
-void FreeL2PagetablesForProc(int pid) {
-
 }

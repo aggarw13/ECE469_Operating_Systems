@@ -85,8 +85,8 @@ uint32 MemoryTranslateUserToSystem (PCB *pcb, uint32 addr) {
 
   int pt_entry = pcb->pagetable[vpage_no];
 
-  if(pt_entry & MEM_PTE_VALID == 0)
-    return MEM_FAIL;
+  if((pt_entry & MEM_PTE_VALID) == 0)
+     return MemoryPageFaultHandler(pcb);
 
   //printf("Virtual address : 0x%x converted to physical address : 0x%x for process : %s\n", addr, (pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset, pcb->name);
   return (uint32)((pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset);

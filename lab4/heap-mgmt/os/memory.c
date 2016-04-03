@@ -17,7 +17,7 @@ static uint32 pagestart;
 static int nfreepages;
 static int freemapmax;
 static Queue heapblocks;
-static heap_block heap_blocks[400];
+//static heap_block heap_blocks[400];
 //----------------------------------------------------------------------
 //
 //	This silliness is required because the compiler believes that
@@ -90,7 +90,7 @@ uint32 MemoryTranslateUserToSystem (PCB *pcb, uint32 addr) {
   int pt_entry = pcb->pagetable[vpage_no];
 
   if(pt_entry & MEM_PTE_VALID == 0)
-    return MEM_FAIL;
+    return MemoryPageFaultHandler(pcb);
 
   //printf("Virtual address : 0x%x converted to physical address : 0x%x for process : %s\n", addr, (pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset, pcb->name);
   return (uint32)((pt_entry & MEM_ADDR_PAGENUM_MASK) + page_offset);

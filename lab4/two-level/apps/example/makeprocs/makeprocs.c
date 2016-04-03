@@ -6,12 +6,18 @@
 #define PART2_PROG "part2.dlx.obj"
 #define INT_MAX 0x7fffffff
 #define NUM_SPAWN_PROCS 30
+#define NUM_RECURSIVE_CALLS 5
+#define MAX_VIRTUAL_PAGE (1 << 10) - 1
 
-void consume_userstack()
+void consume_userstack(int count)
 {
   char large_buff[4096];
   int new_page_var;
-  Printf("After allocating 4KB character buffer, new variable has address : 0x%x\n", (unsigned int)&new_page_var);
+  Printf("After allocating 4KB character buffer in recursive call  num : %d, new local variable has address : %d in virtual page : %d (Max virtual Page  - %d)\n", (NUM_RECURSIVE_CALLS - --count), &new_page_var, (int)(&new_page_var) >> 12, MAX_VIRTUAL_PAGE);
+  if(count == 0)
+    return;
+  else 
+    consume_userstack(count);
 }
 
 void main (int argc, char *argv[])
@@ -75,7 +81,7 @@ void main (int argc, char *argv[])
 
   // Make user stack grow beyond a page  
   Printf("-------------------------------Part 3-------------------------------\n");
-  consume_userstack();
+  consume_userstack(5);
   
   // Creating 100 Hello World processes
   Printf("-------------------------------Part 4-------------------------------\n");
